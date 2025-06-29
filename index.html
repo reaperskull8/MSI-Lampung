@@ -52,6 +52,17 @@
       font-size: 1.5rem;
       font-weight: 700;
       text-decoration: none;
+      /* Tambahkan display flex untuk centering vertikal pada logo */
+      display: flex;
+      align-items: center;
+    }
+
+    /* Perbaikan untuk Logo */
+    .navbar .logo img {
+      max-height: 50px; /* Tinggi maksimum logo, sesuaikan jika perlu */
+      width: auto; /* Lebar otomatis untuk mempertahankan aspek rasio */
+      display: block; /* Agar tidak ada spasi di bawah gambar */
+      /* Hapus style="height: 40px;" dari HTML dan pindahkan kontrol ukuran ke CSS ini */
     }
 
     .navbar-links {
@@ -439,14 +450,18 @@
       footer {
         padding: 2rem 1rem;
       }
+      /* Sesuaikan ukuran logo untuk layar yang lebih kecil jika diperlukan */
+      .navbar .logo img {
+        max-height: 40px; /* Contoh: sedikit lebih kecil untuk mobile */
+      }
     }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <a href="#" class="logo">
-  <img src="logo-msi.png" alt="Logo MSI" style="height: 40px;">
-</a>
+      <img src="logo-msi.png" alt="Logo MSI">
+    </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>

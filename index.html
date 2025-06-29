@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masyarakat Singkong Indonesia (MSI)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdfcf5;
+      color: #2d2d2d;
+    }
+    header {
+      background-color: #e6f4ea;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      color: #2f6239;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .cta-buttons {
+      margin-top: 1rem;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      background-color: #2f6239;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    section {
+      padding: 2rem;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      max-width: 300px;
+      flex: 1;
+    }
+    .card h3 {
+      color: #2f6239;
+    }
+    .card button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #2f6239;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #d6ecd4;
+      padding: 2rem;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Inovasi Singkong untuk Masa Depan Berkelanjutan</h1>
+    <p>Dari limbah jadi berkah — olahan, biomassa, hingga edukasi tersedia di sini.</p>
+    <div class="cta-buttons">
+      <a href="#produk">Lihat Produk</a>
+      <a href="#layanan">Konsultasi Sekarang</a>
+    </div>
+  </header>
+
+  <section id="produk">
+    <h2 style="text-align:center;">Produk Unggulan</h2>
+    <div class="product-grid">
+      <div class="card">
+        <h3>Pupuk Organik Limbah Singkong</h3>
+        <p>Kompos premium dari ampas dan kulit singkong. Harga mulai Rp 20.000/karung.</p>
+        <ul>
+          <li>✅ Ramah lingkungan</li>
+          <li>✅ Cocok untuk berbagai jenis tanah</li>
+        </ul>
+        <button onclick="window.location.href='produk.html'">Beli Sekarang</button>
+      </div>
+      <div class="card">
+        <h3>Produk Olahan Singkong</h3>
+        <p>Tepung Mocaf, keripik sehat, dan gula cair dari singkong UMKM binaan MSI.</p>
+        <button onclick="window.location.href='produk.html'">Jelajahi Produk</button>
+      </div>
+      <div class="card">
+        <h3>Biomassa & Energi Terbarukan</h3>
+        <p>Briket dan pelet dari limbah singkong sebagai alternatif bahan bakar.</p>
+        <button onclick="window.location.href='produk.html'">Cek Detail</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <h2 style="text-align:center;">Layanan Jasa MSI</h2>
+    <div class="product-grid">
+      <div class="card">
+        <h3>Konsultasi & Edukasi</h3>
+        <p>Bimbingan budidaya singkong modern, workshop pengolahan produk, dan sertifikasi usaha.</p>
+        <button onclick="window.location.href='https://forms.gle/msi-edukasi-formulir'">Daftar Sekarang</button>
+      </div>
+      <div class="card">
+        <h3>Sistem Pembayaran & Keanggotaan</h3>
+        <p>Mendukung OVO, GoPay, DANA, QRIS, dan transfer bank. Harga khusus untuk anggota komunitas.</p>
+        <button onclick="window.location.href='https://wa.me/6281234567890?text=Halo%20MSI%2C%20saya%20ingin%20gabung%20komunitas'">Gabung Komunitas MSI</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Kenapa Harus MSI?</strong></p>
+    <p>Mendukung petani lokal • Produk berkelanjutan • Jaringan nasional • Terpercaya sejak 2015</p>
+    <p>📍 Jl. Ketela Raya No. 88, Jakarta Selatan</p>
+    <p>📞 0812-XXXX-XXXX | ✉️ info@msi.or.id</p>
+    <p>© 2025 Masyarakat Singkong Indonesia</p>
+  </footer>
+</body>
+</html>

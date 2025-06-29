@@ -3,56 +3,332 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produk MSI</title>
+  <title>Produk MSI - Beli Sekarang</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #2f6239; /* Dark Green */
+      --secondary-color: #e6f4ea; /* Light Green */
+      --accent-color: #d6ecd4; /* Lighter Green */
+      --text-color: #2d2d2d;
+      --background-color: #fdfcf5;
+      --white: #ffffff;
+      --shadow-light: rgba(0,0,0,0.1);
+      --border-radius: 8px;
+    }
+
     body {
-      font-family: sans-serif;
-      background-color: #f5fff8;
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--background-color);
       margin: 0;
       padding: 2rem;
+      color: var(--text-color);
     }
     h1 {
       text-align: center;
-      color: #2f6239;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 3rem;
     }
-    ul {
-      max-width: 700px;
+
+    /* --- Product List --- */
+    .product-list {
+      max-width: 800px;
       margin: 2rem auto;
       padding: 0;
       list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
-    li {
-      background: white;
-      margin-bottom: 1rem;
+    .product-item {
+      background: var(--white);
       padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    li h3 {
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .product-item h3 {
       margin: 0 0 0.5rem 0;
-      color: #2f6239;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+    }
+    .product-item p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+      flex-grow: 1; /* Agar deskripsi memiliki tinggi yang sama */
+    }
+    .product-item .price {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .product-item button {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 100%;
+    }
+    .product-item button:hover {
+      background-color: #3e814a;
+      transform: translateY(-2px);
+    }
+
+    /* --- Payment Modal --- */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1001; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .modal-content {
+      background-color: var(--white);
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      text-align: center;
+    }
+    .modal-content h2 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+    .modal-content p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .modal-content strong {
+      color: var(--primary-color);
+    }
+    .modal-content .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .modal-content .payment-option {
+      border: 1px solid var(--accent-color);
+      padding: 1rem;
+      border-radius: 5px;
+      background-color: var(--secondary-color);
+      text-align: left;
+    }
+    .modal-content .payment-option h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+    .modal-content .payment-option p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .modal-content .qr-code-img {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border: 1px solid #ddd;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .close-button {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-button:hover,
+    .close-button:focus {
+      color: var(--primary-color);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* --- Responsive adjustments --- */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .product-list {
+        grid-template-columns: 1fr;
+        margin: 1rem auto;
+      }
+      .product-item {
+        padding: 1rem;
+      }
+      .product-item h3 {
+        font-size: 1.4rem;
+      }
+      .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+      }
+      .modal-content h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Daftar Produk MSI</h1>
-  <ul>
-    <li>
-      <h3>Pupuk Organik</h3>
-      <p>Pupuk ramah lingkungan dari limbah singkong. Rp 20.000/karung.</p>
-    </li>
-    <li>
-      <h3>Tepung Mocaf</h3>
-      <p>Tepung sehat tanpa gluten dari singkong. 1 kg mulai dari Rp 15.000.</p>
-    </li>
-    <li>
-      <h3>Briket Singkong</h3>
-      <p>Energi biomassa untuk kebutuhan rumah tangga dan industri.</p>
-    </li>
-    <li>
+  <h1>Daftar Produk Unggulan MSI</h1>
+  <div class="product-list">
+    <div class="product-item">
+      <h3>Pupuk Organik Limbah Singkong</h3>
+      <p>Kompos premium berkualitas tinggi yang dibuat dari ampas dan kulit singkong. Sangat cocok untuk menyuburkan berbagai jenis tanah dan mendukung pertanian organik.</p>
+      <span class="price">Rp 20.000 / karung</span>
+      <button class="buy-button" data-product="Pupuk Organik Limbah Singkong" data-price="20000">Beli Sekarang</button>
+    </div>
+    <div class="product-item">
+      <h3>Tepung Mocaf (Modified Cassava Flour)</h3>
+      <p>Tepung sehat tanpa gluten dari singkong. Cocok untuk aneka kue, roti, dan pengganti tepung terigu.</p>
+      <span class="price">Mulai dari Rp 15.000 / kg</span>
+      <button class="buy-button" data-product="Tepung Mocaf" data-price="15000">Beli Sekarang</button>
+    </div>
+    <div class="product-item">
+      <h3>Briket Singkong (Biomassa)</h3>
+      <p>Solusi energi masa depan dari limbah singkong! Briket berkualitas tinggi sebagai alternatif bahan bakar yang bersih dan berkelanjutan.</p>
+      <span class="price">Harga Negosiasi (untuk bulk)</span>
+      <button class="buy-button" data-product="Briket Singkong" data-price="0">Beli Sekarang</button>
+    </div>
+    <div class="product-item">
       <h3>Keripik Singkong Premium</h3>
-      <p>Snack sehat dan renyah dari mitra UMKM.</p>
-    </li>
-  </ul>
+      <p>Snack sehat dan renyah dari singkong pilihan mitra UMKM binaan MSI, dengan berbagai varian rasa.</p>
+      <span class="price">Mulai dari Rp 10.000 / bungkus</span>
+      <button class="buy-button" data-product="Keripik Singkong Premium" data-price="10000">Beli Sekarang</button>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Pembayaran untuk <span id="modalProductName"></span></h2>
+      <p>Total yang harus dibayar: <strong id="modalProductPrice"></strong></p>
+      <p>Silakan pilih metode pembayaran Anda atau hubungi admin untuk konfirmasi.</p>
+
+      <div class="payment-options">
+        <div class="payment-option">
+          <h4><i class="fas fa-qrcode"></i> QRIS (DANA, OVO, GoPay, LinkAja, dll.)</h4>
+          <p>Scan QR Code di bawah ini untuk melakukan pembayaran.</p>
+          <img src="https://via.placeholder.com/200x200?text=QRIS+Code+MSI" alt="QRIS Code" class="qr-code-img">
+          <p style="font-size: 0.85rem; color: #777;">*Pastikan Anda memindai dengan aplikasi pembayaran yang mendukung QRIS.</p>
+        </div>
+        <div class="payment-option">
+          <h4><i class="fas fa-university"></i> Transfer Bank</h4>
+          <p>Silakan lakukan transfer ke rekening berikut:</p>
+          <p><strong>Bank:</strong> Bank Rakyat Indonesia (BRI)</p>
+          <p><strong>No. Rekening:</strong> <span id="bankAccountNumber">1234-5678-9012-3456</span></p>
+          <p><strong>Atas Nama:</strong> PT. Masyarakat Singkong Indonesia</p>
+        </div>
+      </div>
+      <p style="margin-top: 2rem;">Setelah pembayaran, mohon konfirmasi ke admin kami melalui WhatsApp.</p>
+      <a id="whatsappLink" href="" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none;">
+        <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Get the modal
+    const paymentModal = document.getElementById('paymentModal');
+    const productNameSpan = document.getElementById('modalProductName');
+    const productPriceSpan = document.getElementById('modalProductPrice');
+    const bankAccountNumberSpan = document.getElementById('bankAccountNumber');
+    const whatsappLink = document.getElementById('whatsappLink');
+
+    // Get the <span> element that closes the modal
+    const closeButton = document.getElementsByClassName('close-button')[0];
+
+    // Get all "Beli Sekarang" buttons
+    const buyButtons = document.querySelectorAll('.buy-button');
+
+    // Default bank account number (replace with your actual number)
+    const defaultBankAccount = '1234-5678-9012-3456';
+    const adminWhatsAppNumber = '6281234567890'; // Ganti dengan nomor WhatsApp admin Anda (tanpa + atau 0 di depan)
+
+    // Function to format currency to Rupiah
+    function formatRupiah(amount) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+      }).format(amount);
+    }
+
+    // When the user clicks the button, open the modal
+    buyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.dataset.product;
+        const productPrice = parseFloat(this.dataset.price); // Get price as number
+        const formattedPrice = productPrice === 0 ? 'Harga Negosiasi' : formatRupiah(productPrice); // Handle negotiation price
+
+        productNameSpan.textContent = productName;
+        productPriceSpan.textContent = formattedPrice;
+        bankAccountNumberSpan.textContent = defaultBankAccount; // Set bank account number
+
+        // Prepare WhatsApp message
+        let whatsappMessage = `Halo admin MSI, saya ingin membeli produk: *${productName}*`;
+        if (productPrice > 0) {
+            whatsappMessage += ` dengan harga: *${formattedPrice}*.`;
+        } else {
+            whatsappMessage += `. Mohon info lebih lanjut mengenai pemesanan.`;
+        }
+        whatsappMessage += `\nSaya telah melihat metode pembayaran di website.`;
+
+        whatsappLink.href = `https://wa.me/${adminWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        paymentModal.style.display = 'flex'; // Use flex to center the modal
+      });
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    closeButton.addEventListener('click', function() {
+      paymentModal.style.display = 'none';
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', function(event) {
+      if (event.target == paymentModal) {
+        paymentModal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,609 +1,662 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masyarakat Singkong Indonesia (MSI) - Inovasi & Keberlanjutan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #2f6239; /* Dark Green */
-      --secondary-color: #e6f4ea; /* Light Green */
-      --accent-color: #d6ecd4; /* Lighter Green */
-      --text-color: #2d2d2d;
-      --background-color: #fdfcf5;
-      --white: #ffffff;
-      --shadow-light: rgba(0,0,0,0.1);
-      --border-radius: 8px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masyarakat Singkong Indonesia (MSI) - Inovasi & Keberlanjutan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2f6239; /* Dark Green */
+            --secondary-color: #e6f4ea; /* Light Green */
+            --accent-color: #d6ecd4; /* Lighter Green */
+            --text-color: #2d2d2d;
+            --background-color: #fdfcf5;
+            --white: #ffffff;
+            --shadow-light: rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
 
-    /* Navigation Bar */
-    .navbar {
-      background-color: var(--primary-color);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px var(--shadow-light);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .navbar .logo {
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-decoration: none;
-      /* Tambahkan display flex untuk centering vertikal pada logo */
-      display: flex;
-      align-items: center;
-    }
+        .navbar .logo {
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            /* Tambahkan display flex untuk centering vertikal pada logo */
+            display: flex;
+            align-items: center;
+        }
 
-    /* Perbaikan untuk Logo */
-    .navbar .logo img {
-      max-height: 50px; /* Tinggi maksimum logo, sesuaikan jika perlu */
-      width: auto; /* Lebar otomatis untuk mempertahankan aspek rasio */
-      display: block; /* Agar tidak ada spasi di bawah gambar */
-      /* Hapus style="height: 40px;" dari HTML dan pindahkan kontrol ukuran ke CSS ini */
-    }
+        /* Perbaikan untuk Logo */
+        .navbar .logo img {
+            max-height: 50px; /* Tinggi maksimum logo, sesuaikan jika perlu */
+            width: auto; /* Lebar otomatis untuk mempertahankan aspek rasio */
+            display: block; /* Agar tidak ada spasi di bawah gambar */
+            /* Hapus style="height: 40px;" dari HTML dan pindahkan kontrol ukuran ke CSS ini */
+        }
 
-    .navbar-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-    .navbar-links li {
-      margin-left: 2rem;
-    }
+        .navbar-links li {
+            margin-left: 2rem;
+        }
 
-    .navbar-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
+        .navbar-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
 
-    .navbar-links a:hover {
-      color: var(--secondary-color);
-    }
+        .navbar-links a:hover {
+            color: var(--secondary-color);
+        }
 
-    /* Mobile Nav Button */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
+        /* Mobile Nav Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x500?text=Inovasi+Singkong') no-repeat center center/cover; /* Placeholder image, consider replacing with a real image */
-      color: var(--white);
-      padding: 6rem 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 450px;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x500?text=Inovasi+Singkong') no-repeat center center/cover; /* Placeholder image, consider replacing with a real image */
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 450px;
+        }
 
-    .hero h1 {
-      color: var(--white);
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin-bottom: 2rem;
-    }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
 
-    .cta-buttons a {
-      display: inline-block;
-      margin: 0.7rem;
-      padding: 1rem 1.8rem;
-      background-color: var(--primary-color);
-      color: var(--white);
-      text-decoration: none;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 8px var(--shadow-light);
-    }
+        .cta-buttons a {
+            display: inline-block;
+            margin: 0.7rem;
+            padding: 1rem 1.8rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
 
-    .cta-buttons a:hover {
-      background-color: #3e814a; /* Slightly darker primary */
-      transform: translateY(-2px);
-    }
+        .cta-buttons a:hover {
+            background-color: #3e814a; /* Slightly darker primary */
+            transform: translateY(-2px);
+        }
 
-    /* General Section Styling */
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
+        /* General Section Styling */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-    }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
 
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 4px;
-      background-color: var(--primary-color);
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-    .product-grid, .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
+        .product-grid, .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
 
-    .card {
-      background-color: var(--white);
-      border-radius: var(--border-radius);
-      box-shadow: 0 5px 15px var(--shadow-light);
-      padding: 2rem;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            padding: 2rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
 
-    .card h3 {
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
+        .card h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
 
-    .card p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
 
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 1.5rem;
-    }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
 
-    .card ul li {
-      margin-bottom: 0.5rem;
-      color: #444;
-    }
+        .card ul li {
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
 
-    .card ul li i {
-      color: var(--primary-color);
-      margin-right: 0.5rem;
-    }
+        .card ul li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
 
-    .card button {
-      margin-top: 1rem;
-      padding: 0.8rem 1.5rem;
-      background-color: var(--primary-color);
-      color: var(--white);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      align-self: flex-start; /* Align button to the left within card */
-    }
+        .card button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start; /* Align button to the left within card */
+        }
 
-    .card button:hover {
-      background-color: #3e814a;
-      transform: translateY(-1px);
-    }
+        .card button:hover {
+            background-color: #3e814a;
+            transform: translateY(-1px);
+        }
 
-    /* About Section */
-    #tentang-kami {
-      background-color: var(--secondary-color);
-      text-align: left;
-    }
+        /* About Section */
+        #tentang-kami {
+            background-color: var(--secondary-color);
+            text-align: left;
+        }
 
-    #tentang-kami p {
-      max-width: 800px;
-      margin: 0 auto 1.5rem auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
-    }
+        #tentang-kami p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
 
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-      text-align: center;
-    }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
 
-    .value-item {
-      background-color: var(--white);
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 2px 10px var(--shadow-light);
-    }
+        .value-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
 
-    .value-item i {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
+        .value-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
 
-    .value-item h4 {
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
+        .value-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
 
-    /* Contact Form Section */
-    #kontak {
-        background-color: var(--background-color);
-        text-align: center;
-    }
+        /* Contact Form Section */
+        #kontak {
+            background-color: var(--background-color);
+            text-align: center;
+        }
 
-    .contact-form-container {
-        background-color: var(--white);
-        padding: 2.5rem;
-        border-radius: var(--border-radius);
-        box-shadow: 0 5px 15px var(--shadow-light);
-        max-width: 600px;
-        margin: 2rem auto;
-        text-align: left;
-    }
+        .contact-form-container {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: left;
+        }
 
-    .contact-form-container label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        color: var(--primary-color);
-    }
+        .contact-form-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
 
-    .contact-form-container input[type="text"],
-    .contact-form-container input[type="email"],
-    .contact-form-container textarea {
-        width: calc(100% - 20px); /* Adjust for padding */
-        padding: 10px;
-        margin-bottom: 1.5rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-family: 'Open Sans', sans-serif;
-    }
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+        }
 
-    .contact-form-container textarea {
-        resize: vertical;
-        min-height: 120px;
-    }
+        .contact-form-container textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
 
-    .contact-form-container button {
-        display: block;
-        width: 100%;
-        padding: 1rem;
-        background-color: var(--primary-color);
-        color: var(--white);
-        border: none;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
+        .contact-form-container button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
-    .contact-form-container button:hover {
-        background-color: #3e814a;
-        transform: translateY(-1px);
-    }
+        .contact-form-container button:hover {
+            background-color: #3e814a;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        footer p {
+            margin-bottom: 0.8rem;
+        }
+
+        footer strong {
+            color: var(--primary-color);
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3e814a;
+        }
+
+        /* Added Buttons for Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem; /* Add some space above the buttons */
+        }
+
+        .nav-buttons button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #3e814a;
+            transform: translateY(-1px);
+        }
 
 
-    /* Footer */
-    footer {
-      background-color: var(--accent-color);
-      padding: 3rem 2rem;
-      text-align: center;
-      color: var(--text-color);
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none; /* Hide navigation links by default on small screens */
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary-color);
+                position: absolute;
+                top: 60px; /* Below the navbar */
+                left: 0;
+                padding: 1rem 0;
+                box-shadow: 0 2px 5px var(--shadow-light);
+            }
 
-    footer p {
-      margin-bottom: 0.8rem;
-    }
+            .navbar-links.active {
+                display: flex; /* Show when active */
+            }
 
-    footer strong {
-      color: var(--primary-color);
-    }
+            .navbar-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
 
-    .social-links a {
-      color: var(--primary-color);
-      font-size: 1.8rem;
-      margin: 0 0.8rem;
-      transition: color 0.3s ease;
-    }
+            .menu-toggle {
+                display: block; /* Show menu toggle button */
+            }
 
-    .social-links a:hover {
-      color: #3e814a;
-    }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .navbar-links {
-        display: none; /* Hide navigation links by default on small screens */
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--primary-color);
-        position: absolute;
-        top: 60px; /* Below the navbar */
-        left: 0;
-        padding: 1rem 0;
-        box-shadow: 0 2px 5px var(--shadow-light);
-      }
+            .hero p {
+                font-size: 1rem;
+            }
 
-      .navbar-links.active {
-        display: flex; /* Show when active */
-      }
+            .cta-buttons a {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
 
-      .navbar-links li {
-        margin: 0.5rem 0;
-        text-align: center;
-      }
+            section {
+                padding: 2.5rem 1.5rem;
+            }
 
-      .menu-toggle {
-        display: block; /* Show menu toggle button */
-      }
+            section h2 {
+                font-size: 2rem;
+            }
 
-      .hero h1 {
-        font-size: 2.5rem;
-      }
+            .product-grid, .service-grid, .values-grid {
+                grid-template-columns: 1fr;
+            }
 
-      .hero p {
-        font-size: 1rem;
-      }
+            .card {
+                padding: 1.5rem;
+            }
 
-      .cta-buttons a {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-      }
+            .card h3 {
+                font-size: 1.5rem;
+            }
 
-      section {
-        padding: 2.5rem 1.5rem;
-      }
+            .card button {
+                width: 100%;
+                text-align: center;
+            }
+        }
 
-      section h2 {
-        font-size: 2rem;
-      }
-
-      .product-grid, .service-grid, .values-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 1.5rem;
-      }
-
-      .card h3 {
-        font-size: 1.5rem;
-      }
-
-      .card button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 0.9rem;
-      }
-      .cta-buttons a {
-        display: block;
-        margin: 0.5rem auto;
-        max-width: 250px;
-      }
-      footer {
-        padding: 2rem 1rem;
-      }
-      /* Sesuaikan ukuran logo untuk layar yang lebih kecil jika diperlukan */
-      .navbar .logo img {
-        max-height: 40px; /* Contoh: sedikit lebih kecil untuk mobile */
-      }
-    }
-  </style>
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .cta-buttons a {
+                display: block;
+                margin: 0.5rem auto;
+                max-width: 250px;
+            }
+            footer {
+                padding: 2rem 1rem;
+            }
+            /* Sesuaikan ukuran logo untuk layar yang lebih kecil jika diperlukan */
+            .navbar .logo img {
+                max-height: 40px; /* Contoh: sedikit lebih kecil untuk mobile */
+            }
+            .nav-buttons {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="#" class="logo">
-      <img src="logo-msi.png" alt="Logo MSI">
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <ul class="navbar-links" id="navbarLinks">
-      <li><a href="#tentang-kami">Tentang Kami</a></li>
-      <li><a href="#produk">Produk</a></li>
-      <li><a href="#layanan">Layanan</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero">
-    <h1>Inovasi Singkong untuk Masa Depan Berkelanjutan</h1>
-    <p>Masyarakat Singkong Indonesia (MSI) hadir untuk mengubah limbah singkong menjadi berkah. Kami fokus pada pengembangan produk olahan, biomassa energi terbarukan, dan edukasi budidaya singkong modern, semua demi keberlanjutan ekonomi dan lingkungan.</p>
-    <div class="cta-buttons">
-      <a href="#produk">Lihat Produk <i class="fas fa-arrow-right"></i></a>
-      <a href="#layanan">Konsultasi Sekarang <i class="fas fa-phone-alt"></i></a>
-    </div>
-  </header>
-
-  <section id="tentang-kami">
-    <h2>Kenapa Harus MSI?</h2>
-    <p>Masyarakat Singkong Indonesia (MSI) adalah organisasi terpercaya yang berdedikasi penuh pada potensi singkong. Sejak 2015, kami telah berinovasi dan membangun jaringan nasional untuk mendukung petani lokal, menghasilkan produk berkelanjutan, dan memajukan sektor pertanian singkong di Indonesia.</p>
-    <div class="values-grid">
-      <div class="value-item">
-        <i class="fas fa-hand-holding-heart"></i>
-        <h4>Mendukung Petani Lokal</h4>
-        <p>Kami bermitra langsung dengan petani singkong untuk meningkatkan kualitas hidup dan produktivitas mereka.</p>
-      </div>
-      <div class="value-item">
-        <i class="fas fa-leaf"></i>
-        <h4>Produk Berkelanjutan</h4>
-        <p>Mengubah limbah singkong menjadi produk bernilai tinggi yang ramah lingkungan dan ekonomis.</p>
-      </div>
-      <div class="value-item">
-        <i class="fas fa-network-wired"></i>
-        <h4>Jaringan Nasional</h4>
-        <p>Memiliki koneksi dan distribusi yang luas di seluruh Indonesia untuk dampak yang lebih besar.</p>
-      </div>
-      <div class="value-item">
-        <i class="fas fa-certificate"></i>
-        <h4>Terpercaya Sejak 2015</h4>
-        <p>Rekam jejak yang terbukti dalam inovasi dan kontribusi nyata bagi masyarakat.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="produk">
-    <h2>Produk Unggulan Kami</h2>
-    <div class="product-grid">
-      <div class="card">
-        <h3>Pupuk Organik Limbah Singkong <i class="fas fa-seedling"></i></h3>
-        <p>Kompos premium berkualitas tinggi yang dibuat dari ampas dan kulit singkong. Sangat cocok untuk menyuburkan berbagai jenis tanah dan mendukung pertanian organik.</p>
-        <ul>
-          <li><i class="fas fa-check-circle"></i> Ramah lingkungan & alami</li>
-          <li><i class="fas fa-check-circle"></i> Meningkatkan kesuburan tanah</li>
-          <li><i class="fas fa-check-circle"></i> Harga mulai Rp 20.000/karung</li>
+    <nav class="navbar">
+        <a href="#hero" class="logo"> <img src="logo-msi.png" alt="Logo MSI">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="navbar-links" id="navbarLinks">
+            <li><a href="#tentang-kami">Tentang Kami</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li class="mobile-only-nav-button" style="display: none;"><button onclick="goBack()" style="background-color: var(--secondary-color); color: var(--primary-color); border: 1px solid var(--primary-color);">Kembali</button></li>
         </ul>
-        <button onclick="window.location.href='produk.html'">Beli Sekarang</button>
-      </div>
-      <div class="card">
-        <h3>Produk Olahan Singkong <i class="fas fa-cookie-bite"></i></h3>
-        <p>Jelajahi beragam produk olahan singkong inovatif dari UMKM binaan MSI, mulai dari Tepung Mocaf serbaguna, keripik sehat renyah, hingga gula cair alami sebagai alternatif pemanis sehat.</p>
-        <button onclick="window.location.href='produk.html'">Jelajahi Produk</button>
-      </div>
-      <div class="card">
-        <h3>Biomassa & Energi Terbarukan <i class="fas fa-burn"></i></h3>
-        <p>Solusi energi masa depan dari limbah singkong! Kami menyediakan briket dan pelet berkualitas tinggi sebagai alternatif bahan bakar yang bersih dan berkelanjutan untuk industri dan rumah tangga.</p>
-        <button onclick="window.location.href='produk.html'">Cek Detail</button>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <section id="layanan">
-    <h2>Layanan Jasa MSI</h2>
-    <div class="service-grid">
-      <div class="card">
-        <h3>Konsultasi & Edukasi <i class="fas fa-chalkboard-teacher"></i></h3>
-        <p>Dapatkan bimbingan ahli dalam budidaya singkong modern, ikuti workshop praktis tentang pengolahan produk inovatif, dan raih sertifikasi usaha untuk meningkatkan kapabilitas bisnis Anda.</p>
-        <button onclick="window.location.href='https://forms.gle/msi-edukasi-formulir'" target="_blank">Daftar Sekarang</button>
-      </div>
-      <div class="card">
-        <h3>Sistem Pembayaran & Keanggotaan <i class="fas fa-handshake"></i></h3>
-        <p>Memudahkan transaksi Anda dengan dukungan pembayaran melalui OVO, GoPay, DANA, QRIS, dan transfer bank. Nikmati harga dan penawaran khusus dengan bergabung menjadi anggota komunitas MSI.</p>
-        <button onclick="window.location.href='https://wa.me/6281234567890?text=Halo%20MSI%2C%20saya%20ingin%20gabung%20komunitas'" target="_blank">Gabung Komunitas MSI</button>
-      </div>
-    </div>
-  </section>
+    <header class="hero" id="hero"> <h1>Inovasi Singkong untuk Masa Depan Berkelanjutan</h1>
+        <p>Masyarakat Singkong Indonesia (MSI) hadir untuk mengubah limbah singkong menjadi berkah. Kami fokus pada pengembangan produk olahan, biomassa energi terbarukan, dan edukasi budidaya singkong modern, semua demi keberlanjutan ekonomi dan lingkungan.</p>
+        <div class="cta-buttons">
+            <a href="#produk">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+            <a href="#layanan">Konsultasi Sekarang <i class="fas fa-phone-alt"></i></a>
+        </div>
+    </header>
 
-  <section id="kontak">
-    <h2>Hubungi Kami</h2>
-    <p>Punya pertanyaan, saran, atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami melalui formulir di bawah ini atau informasi kontak yang tersedia.</p>
-    <div class="contact-form-container">
-        <form action="#" method="POST">
-            <label for="name">Nama Lengkap:</label>
-            <input type="text" id="name" name="name" required>
+    <section id="tentang-kami">
+        <h2>Kenapa Harus MSI?</h2>
+        <p>Masyarakat Singkong Indonesia (MSI) adalah organisasi terpercaya yang berdedikasi penuh pada potensi singkong. Sejak 2015, kami telah berinovasi dan membangun jaringan nasional untuk mendukung petani lokal, menghasilkan produk berkelanjutan, dan memajukan sektor pertanian singkong di Indonesia.</p>
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>Mendukung Petani Lokal</h4>
+                <p>Kami bermitra langsung dengan petani singkong untuk meningkatkan kualitas hidup dan produktivitas mereka.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-leaf"></i>
+                <h4>Produk Berkelanjutan</h4>
+                <p>Mengubah limbah singkong menjadi produk bernilai tinggi yang ramah lingkungan dan ekonomis.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-network-wired"></i>
+                <h4>Jaringan Nasional</h4>
+                <p>Memiliki koneksi dan distribusi yang luas di seluruh Indonesia untuk dampak yang lebih besar.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-certificate"></i>
+                <h4>Terpercaya Sejak 2015</h4>
+                <p>Rekam jejak yang terbukti dalam inovasi dan kontribusi nyata bagi masyarakat.</p>
+            </div>
+        </div>
+    </section>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <section id="produk">
+        <h2>Produk Unggulan Kami</h2>
+        <div class="product-grid">
+            <div class="card">
+                <h3>Pupuk Organik Limbah Singkong <i class="fas fa-seedling"></i></h3>
+                <p>Kompos premium berkualitas tinggi yang dibuat dari ampas dan kulit singkong. Sangat cocok untuk menyuburkan berbagai jenis tanah dan mendukung pertanian organik.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Ramah lingkungan & alami</li>
+                    <li><i class="fas fa-check-circle"></i> Meningkatkan kesuburan tanah</li>
+                    <li><i class="fas fa-check-circle"></i> Harga mulai Rp 20.000/karung</li>
+                </ul>
+                <button onclick="window.location.href='produk.html'">Beli Sekarang</button>
+            </div>
+            <div class="card">
+                <h3>Produk Olahan Singkong <i class="fas fa-cookie-bite"></i></h3>
+                <p>Jelajahi beragam produk olahan singkong inovatif dari UMKM binaan MSI, mulai dari Tepung Mocaf serbaguna, keripik sehat renyah, hingga gula cair alami sebagai alternatif pemanis sehat.</p>
+                <button onclick="window.location.href='produk.html'">Jelajahi Produk</button>
+            </div>
+            <div class="card">
+                <h3>Biomassa & Energi Terbarukan <i class="fas fa-burn"></i></h3>
+                <p>Solusi energi masa depan dari limbah singkong! Kami menyediakan briket dan pelet berkualitas tinggi sebagai alternatif bahan bakar yang bersih dan berkelanjutan untuk industri dan rumah tangga.</p>
+                <button onclick="window.location.href='produk.html'">Cek Detail</button>
+            </div>
+        </div>
+    </section>
 
-            <label for="subject">Subjek:</label>
-            <input type="text" id="subject" name="subject" required>
+    <section id="layanan">
+        <h2>Layanan Jasa MSI</h2>
+        <div class="service-grid">
+            <div class="card">
+                <h3>Konsultasi & Edukasi <i class="fas fa-chalkboard-teacher"></i></h3>
+                <p>Dapatkan bimbingan ahli dalam budidaya singkong modern, ikuti workshop praktis tentang pengolahan produk inovatif, dan raih sertifikasi usaha untuk meningkatkan kapabilitas bisnis Anda.</p>
+                <button onclick="window.location.href='https://forms.gle/msi-edukasi-formulir'" target="_blank">Daftar Sekarang</button>
+            </div>
+            <div class="card">
+                <h3>Sistem Pembayaran & Keanggotaan <i class="fas fa-handshake"></i></h3>
+                <p>Memudahkan transaksi Anda dengan dukungan pembayaran melalui OVO, GoPay, DANA, QRIS, dan transfer bank. Nikmati harga dan penawaran khusus dengan bergabung menjadi anggota komunitas MSI.</p>
+                <button onclick="window.location.href='https://wa.me/6281234567890?text=Halo%20MSI%2C%20saya%20ingin%20gabung%20komunitas'" target="_blank">Gabung Komunitas MSI</button>
+            </div>
+        </div>
+    </section>
 
-            <label for="message">Pesan Anda:</label>
-            <textarea id="message" name="message" required></textarea>
+    <section id="kontak">
+        <h2>Hubungi Kami</h2>
+        <p>Punya pertanyaan, saran, atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami melalui formulir di bawah ini atau informasi kontak yang tersedia.</p>
+        <div class="contact-form-container">
+            <form action="#" method="POST">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" name="name" required>
 
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </div>
-  </section>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-  <footer>
-    <p><strong>Kenapa Harus MSI?</strong></p>
-    <p>Mendukung petani lokal • Produk berkelanjutan • Jaringan nasional • Terpercaya sejak 2015</p>
-    <div class="social-links">
-      <a href="https://facebook.com/msi.official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/msi.official" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://twitter.com/msi.official" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com/company/msi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <p>📍 Jl. Ketela Raya No. 88, Jakarta Selatan</p>
-    <p>📞 0812-XXXX-XXXX | ✉️ info@msi.or.id</p>
-    <p>© 2025 Masyarakat Singkong Indonesia. Hak Cipta Dilindungi.</p>
-  </footer>
+                <label for="subject">Subjek:</label>
+                <input type="text" id="subject" name="subject" required>
 
-  <script>
-    // JavaScript for mobile navigation toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navbarLinks = document.getElementById('navbarLinks');
+                <label for="message">Pesan Anda:</label>
+                <textarea id="message" name="message" required></textarea>
 
-    menuToggle.addEventListener('click', () => {
-      navbarLinks.classList.toggle('active');
-    });
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
 
-    // Close mobile menu when a link is clicked
-    navbarLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+    <footer>
+        <p><strong>Kenapa Harus MSI?</strong></p>
+        <p>Mendukung petani lokal • Produk berkelanjutan • Jaringan nasional • Terpercaya sejak 2015</p>
+        <div class="social-links">
+            <a href="https://facebook.com/msi.official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/msi.official" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/msi.official" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/company/msi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>📍 Jl. Ketela Raya No. 88, Jakarta Selatan</p>
+        <p>📞 0812-XXXX-XXXX | ✉️ info@msi.or.id</p>
+        <p>© 2025 Masyarakat Singkong Indonesia. Hak Cipta Dilindungi.</p>
+
+        <div class="nav-buttons">
+            <button onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali ke Halaman Sebelumnya</button>
+            <button onclick="goToHome()"><i class="fas fa-home"></i> Kembali ke Beranda</button>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navbarLinks = document.getElementById('navbarLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+            // Menampilkan/menyembunyikan tombol "Kembali" di nav mobile
+            const mobileNavButton = document.querySelector('.mobile-only-nav-button');
             if (navbarLinks.classList.contains('active')) {
-                navbarLinks.classList.remove('active');
+                mobileNavButton.style.display = 'block';
+            } else {
+                mobileNavButton.style.display = 'none';
             }
         });
-    });
-  </script>
+
+        // Close mobile menu when a link is clicked
+        navbarLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarLinks.classList.contains('active')) {
+                    navbarLinks.classList.remove('active');
+                    document.querySelector('.mobile-only-nav-button').style.display = 'none';
+                }
+            });
+        });
+
+        // Function to go back to the previous page in history
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to go to the home section (top of the current page)
+        function goToHome() {
+            window.location.href = '#hero'; // Scroll to the hero section
+            // Atau jika ingin me-refresh halaman ke paling atas:
+            // window.location.href = '/'; // Ganti dengan URL beranda jika ini adalah halaman yang berbeda
+        }
+    </script>
 </body>
 </html>

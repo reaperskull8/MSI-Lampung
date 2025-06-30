@@ -1,1 +1,33 @@
+<!-- navbar.html -->
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="logo-msi.png" alt="Logo MSI">
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+  <ul class="navbar-links" id="navbarLinks">
+    <li><a href="index.html#tentang-kami">Tentang Kami</a></li>
+    <li><a href="index.html#produk">Produk</a></li>
+    <li><a href="index.html#layanan">Layanan</a></li>
+    <li><a href="index.html#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Toggle menu (untuk mobile)
+  const menuToggle = document.getElementById('menuToggle');
+  const navbarLinks = document.getElementById('navbarLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+  });
+
+  // Tutup navbar saat link diklik (mobile)
+  navbarLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbarLinks.classList.remove('active');
+    });
+  });
+</script>
 

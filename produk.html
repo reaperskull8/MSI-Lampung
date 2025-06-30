@@ -289,70 +289,78 @@
     </div>
   </div>
 
-  <script>
-    // Get the modal
-    const paymentModal = document.getElementById('paymentModal');
-    const productNameSpan = document.getElementById('modalProductName');
-    const productPriceSpan = document.getElementById('modalProductPrice');
-    const bankAccountNumberSpan = document.getElementById('bankAccountNumber');
-    const whatsappLink = document.getElementById('whatsappLink');
+    <style>
+  .no-scroll {
+    overflow: hidden;
+    height: 100%;
+  }
 
-    // Get the <span> element that closes the modal
-    const closeButton = document.getElementsByClassName('close-button')[0];
-
-    // Get all "Beli Sekarang" buttons
-    const buyButtons = document.querySelectorAll('.buy-button');
-
-    // Default bank account number (replace with your actual number)
-    const defaultBankAccount = '1234-5678-9012-3456';
-    const adminWhatsAppNumber = '6281234567890'; // Ganti dengan nomor WhatsApp admin Anda (tanpa + atau 0 di depan)
-
-    // Function to format currency to Rupiah
-    function formatRupiah(amount) {
-      return new Intl.NumberFormat('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0
-      }).format(amount);
+  @media (max-width: 480px) {
+    body {
+      padding: 0.5rem;
     }
+    .modal-content {
+      padding: 1rem;
+    }
+  }
+</style>
+  
+<script>
+  const paymentModal = document.getElementById('paymentModal');
+  const productNameSpan = document.getElementById('modalProductName');
+  const productPriceSpan = document.getElementById('modalProductPrice');
+  const bankAccountNumberSpan = document.getElementById('bankAccountNumber');
+  const whatsappLink = document.getElementById('whatsappLink');
+  const closeButton = document.querySelector('.close-button');
+  const buyButtons = document.querySelectorAll('.buy-button');
 
-    // When the user clicks the button, open the modal
-    buyButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const productName = this.dataset.product;
-        const productPrice = parseFloat(this.dataset.price); // Get price as number
-        const formattedPrice = productPrice === 0 ? 'Harga Negosiasi' : formatRupiah(productPrice); // Handle negotiation price
+  const defaultBankAccount = '1234-5678-9012-3456';
+  const adminWhatsAppNumber = '6281234567890';
 
-        productNameSpan.textContent = productName;
-        productPriceSpan.textContent = formattedPrice;
-        bankAccountNumberSpan.textContent = defaultBankAccount; // Set bank account number
+  function formatRupiah(amount) {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0
+    }).format(amount);
+  }
 
-        // Prepare WhatsApp message
-        let whatsappMessage = `Halo admin MSI, saya ingin membeli produk: *${productName}*`;
-        if (productPrice > 0) {
-            whatsappMessage += ` dengan harga: *${formattedPrice}*.`;
-        } else {
-            whatsappMessage += `. Mohon info lebih lanjut mengenai pemesanan.`;
-        }
-        whatsappMessage += `\nSaya telah melihat metode pembayaran di website.`;
+  buyButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const productName = this.dataset.product;
+      const productPrice = parseFloat(this.dataset.price);
+      const formattedPrice = productPrice === 0 ? 'Harga Negosiasi' : formatRupiah(productPrice);
 
-        whatsappLink.href = `https://wa.me/${adminWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      productNameSpan.textContent = productName;
+      productPriceSpan.textContent = formattedPrice;
+      bankAccountNumberSpan.textContent = defaultBankAccount;
 
-        paymentModal.style.display = 'flex'; // Use flex to center the modal
-      });
-    });
-
-    // When the user clicks on <span> (x), close the modal
-    closeButton.addEventListener('click', function() {
-      paymentModal.style.display = 'none';
-    });
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener('click', function(event) {
-      if (event.target == paymentModal) {
-        paymentModal.style.display = 'none';
+      let whatsappMessage = `Halo admin MSI, saya ingin membeli produk: *${productName}*`;
+      if (productPrice > 0) {
+        whatsappMessage += ` dengan harga: *${formattedPrice}*.`;
+      } else {
+        whatsappMessage += `. Mohon info lebih lanjut mengenai pemesanan.`;
       }
+      whatsappMessage += `\nSaya telah melihat metode pembayaran di website.`;
+
+      whatsappLink.href = `https://wa.me/${adminWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      paymentModal.style.display = 'flex';
+      document.body.classList.add('no-scroll');
     });
-  </script>
+  });
+
+  closeButton.addEventListener('click', function () {
+    paymentModal.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target == paymentModal) {
+      paymentModal.style.display = 'none';
+      document.body.classList.remove('no-scroll');
+    }
+  });
+</script>
 </body>
 </html>

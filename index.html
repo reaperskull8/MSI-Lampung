@@ -8,47 +8,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            /* Palet Warna Baru: Lebih Segar dan Modern */
-            --primary-color: #388E3C; /* Hijau Moderat yang Segar */
-            --secondary-color: #DCEDC8; /* Hijau Muda Lembut */
-            --accent-color: #689F38; /* Hijau Lebih Gelap sebagai Aksen Kontras */
-            --highlight-color: #A5D6A7; /* Hijau Cerah untuk Highlight */
+            /* Palet Warna Baru: Nuansa Alam & Tanah dengan Highlight Berani */
+            --primary-color: #5D4037; /* Cokelat Tua (Dark Brown) - Kontras dengan Hijau Logo */
+            --secondary-color: #F3E9E0; /* Beige Sangat Muda (Very Light Beige) - Latar Belakang Cerah */
+            --accent-color: #8D6E63; /* Cokelat Sedang (Medium Brown) - Untuk Judul & Ikon */
+            --highlight-color: #FFB300; /* Kuning Amber (Amber Yellow) - Untuk CTA & Hover, Sangat Menonjol */
             --text-color: #333333; /* Darker text for better readability */
             --background-color: #F8F9FA; /* Off-white yang lebih cerah */
             --white: #ffffff;
             --shadow-light: rgba(0, 0, 0, 0.1);
             --shadow-medium: rgba(0, 0, 0, 0.15);
-            --border-radius: 12px; /* Sedikit lebih melengkung */
+            --border-radius: 12px;
         }
 
         html {
-            scroll-behavior: smooth; /* Smooth scrolling untuk navigasi */
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Roboto', sans-serif; /* Font baru untuk body */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.8; /* Sedikit lebih tinggi untuk keterbacaan */
+            line-height: 1.8;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif; /* Font baru untuk judul */
-            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            color: var(--accent-color); /* Judul menggunakan accent color */
             margin-bottom: 1.2rem;
             line-height: 1.2;
         }
 
         /* Navigation Bar */
         .navbar {
-            background-color: var(--primary-color);
-            padding: 1.2rem 2.5rem; /* Padding sedikit lebih besar */
+            background-color: var(--primary-color); /* Navbar pakai primary color (Dark Brown) */
+            padding: 1.2rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px var(--shadow-light); /* Bayangan lebih halus */
+            box-shadow: 0 4px 10px var(--shadow-light);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -57,12 +57,12 @@
         .navbar .logo {
             color: var(--white);
             font-family: 'Poppins', sans-serif;
-            font-size: 1.6rem; /* Ukuran font logo sedikit lebih besar */
+            font-size: 1.6rem;
             font-weight: 700;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px; /* Jarak antara logo dan teks */
+            gap: 10px;
         }
 
         .navbar .logo img {
@@ -80,15 +80,15 @@
         }
 
         .navbar-links li {
-            margin-left: 2.5rem; /* Jarak antar link sedikit lebih besar */
+            margin-left: 2.5rem;
         }
 
         .navbar-links a {
-            color: var(--white);
+            color: var(--white); /* Link navbar putih */
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease, transform 0.2s ease; /* Tambah transisi transform */
-            position: relative; /* Untuk underline efek hover */
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
             padding-bottom: 5px;
         }
 
@@ -96,8 +96,8 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 3px; /* Ketebalan underline */
-            background-color: var(--highlight-color); /* Warna underline highlight */
+            height: 3px;
+            background-color: var(--highlight-color); /* Underline pakai highlight color */
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
@@ -105,7 +105,7 @@
         }
 
         .navbar-links a:hover {
-            color: var(--highlight-color);
+            color: var(--highlight-color); /* Hover pakai highlight color */
             transform: translateY(-2px);
         }
 
@@ -118,8 +118,8 @@
             display: none;
             background: none;
             border: none;
-            color: var(--white);
-            font-size: 2rem; /* Ukuran ikon lebih besar */
+            color: var(--white); /* Tombol menu mobile putih */
+            font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
@@ -130,17 +130,17 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://via.placeholder.com/1500x700?text=Inovasi+Singkong+MSI') no-repeat center center/cover fixed; /* Latar belakang gambar tetap (paralaks) */
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://via.placeholder.com/1500x700?text=Inovasi+Singkong+MSI') no-repeat center center/cover fixed;
             color: var(--white);
-            padding: 8rem 2rem; /* Padding lebih besar */
+            padding: 8rem 2rem;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 550px; /* Tinggi minimum lebih besar */
+            min-height: 550px;
             position: relative;
-            overflow: hidden; /* Pastikan tidak ada overflow dari gambar */
+            overflow: hidden;
         }
 
         .hero::before {
@@ -150,26 +150,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Sedikit overlay gelap lagi */
+            background: rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
         .hero h1, .hero p, .hero .cta-buttons {
             position: relative;
-            z-index: 2; /* Pastikan konten di atas overlay */
+            z-index: 2;
         }
 
         .hero h1 {
             color: var(--white);
-            font-size: 4.2rem; /* Ukuran font lebih besar */
+            font-size: 4.2rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* Text shadow untuk kontras */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
         .hero p {
-            font-size: 1.5rem; /* Ukuran font lebih besar */
-            max-width: 900px; /* Lebar maksimum paragraf */
+            font-size: 1.5rem;
+            max-width: 900px;
             margin-bottom: 2.5rem;
             opacity: 0.9;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
@@ -178,24 +178,24 @@
         .cta-buttons a {
             display: inline-block;
             margin: 0.8rem;
-            padding: 1.2rem 2.2rem; /* Padding lebih besar */
-            background-color: var(--highlight-color); /* Warna highlight untuk CTA */
-            color: var(--primary-color); /* Teks dengan warna primary */
+            padding: 1.2rem 2.2rem;
+            background-color: var(--highlight-color); /* Tombol CTA pakai highlight color (Amber Yellow) */
+            color: var(--primary-color); /* Teks tombol CTA pakai primary color (Dark Brown) */
             text-decoration: none;
-            border-radius: 50px; /* Bentuk pil untuk tombol */
-            font-weight: 700; /* Lebih tebal */
-            font-size: 1.1rem; /* Ukuran font sedikit lebih besar */
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 15px var(--shadow-medium); /* Bayangan lebih jelas */
-            border: 2px solid var(--highlight-color); /* Border agar tetap terlihat saat hover */
+            box-shadow: 0 6px 15px var(--shadow-medium);
+            border: 2px solid var(--highlight-color);
         }
 
         .cta-buttons a:hover {
-            background-color: var(--primary-color); /* Balik warna saat hover */
+            background-color: var(--primary-color); /* Saat hover, warna dibalik */
             color: var(--white);
-            transform: translateY(-5px) scale(1.02); /* Efek melayang lebih terasa */
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            border-color: var(--white); /* Border putih saat hover */
+            border-color: var(--white);
         }
         .cta-buttons a i {
             margin-left: 10px;
@@ -203,31 +203,31 @@
 
         /* General Section Styling */
         section {
-            padding: 5rem 2.5rem; /* Padding lebih besar */
+            padding: 5rem 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
-        section:nth-of-type(even) { /* Latar belakang berbeda untuk section genap */
-            background-color: var(--secondary-color);
+        section:nth-of-type(even) {
+            background-color: var(--secondary-color); /* Section genap pakai secondary color (Light Beige) */
         }
 
         section h2 {
-            font-size: 3rem; /* Ukuran judul section lebih besar */
+            font-size: 3rem;
             margin-bottom: 3.5rem;
             position: relative;
             display: inline-block;
-            color: var(--accent-color); /* Judul section dengan warna aksen */
+            color: var(--accent-color); /* Judul section pakai accent color (Medium Brown) */
         }
 
         section h2::after {
             content: '';
             position: absolute;
-            width: 80px; /* Garis bawah lebih panjang */
-            height: 5px; /* Garis bawah lebih tebal */
-            background-color: var(--primary-color);
-            bottom: -15px; /* Jarak dari teks */
+            width: 80px;
+            height: 5px;
+            background-color: var(--primary-color); /* Garis bawah judul pakai primary color (Dark Brown) */
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 3px;
@@ -235,8 +235,8 @@
 
         .product-grid, .service-grid, .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Min-width sedikit diatur ulang */
-            gap: 2.5rem; /* Jarak antar grid lebih besar */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
             justify-content: center;
         }
@@ -244,24 +244,24 @@
         .card {
             background-color: var(--white);
             border-radius: var(--border-radius);
-            box-shadow: 0 8px 20px var(--shadow-light); /* Bayangan lebih menonjol */
-            padding: 2.5rem; /* Padding lebih besar */
+            box-shadow: 0 8px 20px var(--shadow-light);
+            padding: 2.5rem;
             text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transisi lebih halus */
-            border: 1px solid var(--secondary-color); /* Sedikit border */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid var(--secondary-color);
         }
 
         .card:hover {
-            transform: translateY(-8px) scale(1.02); /* Efek melayang yang lebih dramatis */
-            box-shadow: 0 15px 30px var(--shadow-medium); /* Bayangan lebih dalam */
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px var(--shadow-medium);
         }
 
         .card h3 {
-            color: var(--primary-color);
-            font-size: 2rem; /* Ukuran judul card lebih besar */
+            color: var(--primary-color); /* Judul card pakai primary color */
+            font-size: 2rem;
             margin-top: 0;
             margin-bottom: 1.2rem;
             display: flex;
@@ -270,12 +270,12 @@
         }
 
         .card h3 i {
-            color: var(--accent-color); /* Ikon dengan warna aksen */
+            color: var(--accent-color); /* Ikon card pakai accent color */
             font-size: 1.8rem;
         }
 
         .card p {
-            font-size: 1.05rem; /* Ukuran font paragraf sedikit lebih besar */
+            font-size: 1.05rem;
             color: #555;
             margin-bottom: 1.8rem;
             flex-grow: 1;
@@ -288,50 +288,50 @@
         }
 
         .card ul li {
-            margin-bottom: 0.8rem; /* Jarak antar list item */
+            margin-bottom: 0.8rem;
             color: var(--text-color);
             display: flex;
             align-items: center;
         }
 
         .card ul li i {
-            color: var(--primary-color);
-            margin-right: 0.8rem; /* Jarak ikon dari teks */
+            color: var(--primary-color); /* Ikon checklist pakai primary color */
+            margin-right: 0.8rem;
             font-size: 1.1rem;
         }
 
         .card button {
             margin-top: 1.5rem;
-            padding: 1rem 2rem; /* Padding lebih besar */
-            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            background-color: var(--primary-color); /* Tombol card pakai primary color */
             color: var(--white);
             border: none;
-            border-radius: 8px; /* Sudut sedikit melengkung */
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1.1rem; /* Ukuran font button lebih besar */
+            font-size: 1.1rem;
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 10px var(--shadow-light);
-            align-self: center; /* Tombol di tengah card */
-            width: fit-content; /* Sesuai dengan konten */
+            align-self: center;
+            width: fit-content;
         }
 
         .card button:hover {
-            background-color: var(--accent-color);
+            background-color: var(--accent-color); /* Hover tombol card pakai accent color */
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
         /* About Section */
         #tentang-kami {
-            background-color: var(--secondary-color);
-            text-align: center; /* Kembalikan ke tengah untuk konsistensi */
+            background-color: var(--secondary-color); /* Latar belakang about pakai secondary color */
+            text-align: center;
         }
 
         #tentang-kami p {
-            max-width: 900px; /* Lebar teks lebih besar */
+            max-width: 900px;
             margin: 0 auto 2rem auto;
-            font-size: 1.15rem; /* Font size sedikit lebih besar */
+            font-size: 1.15rem;
             line-height: 1.9;
         }
 
@@ -353,21 +353,20 @@
         }
 
         .value-item i {
-            font-size: 3rem; /* Ukuran ikon lebih besar */
-            color: var(--accent-color); /* Warna ikon aksen */
+            font-size: 3rem;
+            color: var(--accent-color); /* Ikon value item pakai accent color */
             margin-bottom: 1.2rem;
         }
 
         .value-item h4 {
             margin-bottom: 0.8rem;
-            font-size: 1.5rem; /* Ukuran judul value item lebih besar */
-            color: var(--primary-color);
+            font-size: 1.5rem;
+            color: var(--primary-color); /* Judul value item pakai primary color */
         }
         .value-item p {
             font-size: 1rem;
             color: #666;
         }
-
 
         /* Contact Form Section */
         #kontak {
@@ -376,30 +375,30 @@
 
         .contact-form-container {
             background-color: var(--white);
-            padding: 3rem; /* Padding form lebih besar */
+            padding: 3rem;
             border-radius: var(--border-radius);
             box-shadow: 0 8px 20px var(--shadow-light);
-            max-width: 700px; /* Lebar form sedikit lebih lebar */
+            max-width: 700px;
             margin: 2.5rem auto;
             text-align: left;
-            border: 1px solid var(--highlight-color); /* Border pada form */
+            border: 1px solid var(--highlight-color); /* Border form pakai highlight color */
         }
 
         .contact-form-container label {
             display: block;
             margin-bottom: 0.8rem;
             font-weight: 600;
-            color: var(--accent-color); /* Warna label form */
+            color: var(--accent-color); /* Label form pakai accent color */
             font-size: 1.05rem;
         }
 
         .contact-form-container input,
         .contact-form-container textarea {
-            width: calc(100% - 24px); /* Sesuaikan untuk padding */
-            padding: 12px; /* Padding input lebih besar */
+            width: calc(100% - 24px);
+            padding: 12px;
             margin-bottom: 1.8rem;
-            border: 1px solid #ddd; /* Border lebih terang */
-            border-radius: 8px; /* Sudut lebih melengkung */
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 1rem;
             font-family: 'Roboto', sans-serif;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -407,25 +406,25 @@
 
         .contact-form-container input:focus,
         .contact-form-container textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2); /* Ring focus yang lebih halus */
+            border-color: var(--primary-color); /* Focus border pakai primary color */
+            box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2); /* Ring focus primary color transparan */
             outline: none;
         }
 
         .contact-form-container textarea {
             resize: vertical;
-            min-height: 150px; /* Tinggi minimum textarea lebih besar */
+            min-height: 150px;
         }
 
         .contact-form-container button {
             display: block;
             width: 100%;
-            padding: 1.2rem; /* Padding button lebih besar */
-            background-color: var(--primary-color);
+            padding: 1.2rem;
+            background-color: var(--primary-color); /* Tombol form pakai primary color */
             color: var(--white);
             border: none;
             border-radius: 8px;
-            font-size: 1.2rem; /* Ukuran font button lebih besar */
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -433,17 +432,17 @@
         }
 
         .contact-form-container button:hover {
-            background-color: var(--accent-color);
+            background-color: var(--accent-color); /* Hover tombol form pakai accent color */
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary-color); /* Footer pakai warna primary */
-            padding: 4rem 2.5rem; /* Padding lebih besar */
+            background-color: var(--primary-color); /* Footer pakai primary color */
+            padding: 4rem 2.5rem;
             text-align: center;
-            color: var(--white); /* Teks putih di footer */
+            color: var(--white); /* Teks footer putih */
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
 
@@ -454,7 +453,7 @@
         }
 
         footer strong {
-            color: var(--highlight-color); /* Highlight color untuk strong */
+            color: var(--highlight-color); /* Strong di footer pakai highlight color */
         }
 
         .social-links {
@@ -464,13 +463,13 @@
 
         .social-links a {
             color: var(--white); /* Ikon sosial putih */
-            font-size: 2rem; /* Ukuran ikon sosial lebih besar */
+            font-size: 2rem;
             margin: 0 1rem;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: var(--highlight-color);
+            color: var(--highlight-color); /* Hover ikon sosial pakai highlight color */
             transform: translateY(-3px) scale(1.1);
         }
 
@@ -478,14 +477,14 @@
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem; /* Jarak antar tombol navigasi footer */
+            gap: 1.5rem;
             margin-top: 3rem;
         }
 
         .nav-buttons button {
             padding: 1rem 2rem;
-            background-color: var(--highlight-color); /* Warna highlight untuk tombol footer */
-            color: var(--primary-color); /* Teks dengan warna primary */
+            background-color: var(--highlight-color); /* Tombol footer pakai highlight color */
+            color: var(--primary-color); /* Teks tombol footer pakai primary color */
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -496,7 +495,7 @@
         }
 
         .nav-buttons button:hover {
-            background-color: var(--secondary-color); /* Warna secondary saat hover */
+            background-color: var(--secondary-color); /* Hover tombol footer pakai secondary color */
             color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
@@ -505,7 +504,7 @@
             margin-right: 8px;
         }
 
-        /* Responsive Design */
+        /* Responsive Design (tetap sama dengan penyesuaian warna) */
         @media (max-width: 1024px) { /* Untuk Laptop */
             .navbar .logo {
                 font-size: 1.4rem;
@@ -547,7 +546,7 @@
                 width: 100%;
                 background-color: var(--primary-color);
                 position: absolute;
-                top: 70px; /* Di bawah navbar */
+                top: 70px;
                 left: 0;
                 padding: 1.5rem 0;
                 box-shadow: 0 5px 10px var(--shadow-light);
@@ -562,7 +561,7 @@
                 text-align: center;
             }
             .navbar-links a {
-                padding: 10px 0; /* Tambah padding agar mudah diklik */
+                padding: 10px 0;
             }
             .navbar-links a::after {
                 height: 2px;
@@ -621,7 +620,7 @@
                 font-size: 0.95rem;
             }
             .card button {
-                width: 80%; /* Tombol card lebih lebar di mobile */
+                width: 80%;
                 align-self: center;
                 font-size: 0.95rem;
             }

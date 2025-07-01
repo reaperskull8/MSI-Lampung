@@ -52,17 +52,16 @@
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
-            /* Tambahkan display flex untuk centering vertikal pada logo */
             display: flex;
             align-items: center;
         }
 
-        /* Perbaikan untuk Logo */
+        /* Perbaikan untuk Logo agar Proporsional */
         .navbar .logo img {
-            max-height: 50px; /* Tinggi maksimum logo, sesuaikan jika perlu */
-            width: auto; /* Lebar otomatis untuk mempertahankan aspek rasio */
-            display: block; /* Agar tidak ada spasi di bawah gambar */
-            /* Hapus style="height: 40px;" dari HTML dan pindahkan kontrol ukuran ke CSS ini */
+            width: auto; /* Memastikan lebar otomatis untuk menjaga aspek rasio */
+            max-width: 150px; /* Lebar maksimum logo untuk desktop */
+            max-height: 60px; /* Tinggi maksimum logo untuk desktop */
+            display: block; /* Menghilangkan spasi di bawah gambar */
         }
 
         .navbar-links {
@@ -395,7 +394,14 @@
 
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) { /* Untuk Laptop */
+            .navbar .logo img {
+                max-width: 120px; /* Sedikit lebih kecil untuk laptop */
+                max-height: 50px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Untuk Tablet dan Mobile */
             .navbar-links {
                 display: none; /* Hide navigation links by default on small screens */
                 flex-direction: column;
@@ -458,9 +464,15 @@
                 width: 100%;
                 text-align: center;
             }
+
+            /* Ukuran logo spesifik untuk tablet */
+            .navbar .logo img {
+                max-width: 100px; /* Ukuran logo untuk tablet */
+                max-height: 45px;
+            }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 480px) { /* Untuk HP */
             .hero h1 {
                 font-size: 2rem;
             }
@@ -475,9 +487,10 @@
             footer {
                 padding: 2rem 1rem;
             }
-            /* Sesuaikan ukuran logo untuk layar yang lebih kecil jika diperlukan */
+            /* Ukuran logo spesifik untuk HP */
             .navbar .logo img {
-                max-height: 40px; /* Contoh: sedikit lebih kecil untuk mobile */
+                max-width: 80px; /* Ukuran logo untuk HP */
+                max-height: 35px;
             }
             .nav-buttons {
                 flex-direction: column; /* Stack buttons vertically on small screens */

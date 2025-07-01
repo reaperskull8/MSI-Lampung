@@ -9,16 +9,16 @@
     <style>
         :root {
             /* Palet Warna Baru: Nuansa Alam & Tanah dengan Highlight Berani */
-             --primary-color: #3CB371; /* Medium Sea Green */
-            --secondary-color: #d2f8d2; /* Fresh Light Green */
-            --accent-color: #A8E6CF; /* Cheerful Accent */
+            --primary-color: #3CB371; /* Medium Sea Green - Hijau Utama */
+            --secondary-color: #d2f8d2; /* Fresh Light Green - Hijau Muda Segar */
+            --accent-color: #2F6239; /* Darker Green - Hijau Tua untuk Aksen */
+            --highlight-color: #FFD700; /* Gold - Emas untuk Highlight */
             --text-color: #2d2d2d;
             --background-color: #fdfcf5;
             --white: #ffffff;
             --shadow-light: rgba(0,0,0,0.1);
+            --shadow-medium: rgba(0,0,0,0.2);
             --border-radius: 8px;
-            --navbar-background: #e7fff0; /* Latar navbar pastel hijau segar */
-            --navbar-text: #2f6239; /* Hijau tua untuk keterbacaan */
         }
 
         html {
@@ -43,7 +43,7 @@
 
         /* Navigation Bar */
         .navbar {
-            background-color: var(--primary-color); /* Navbar pakai primary color (Dark Brown) */
+            background-color: var(--primary-color);
             padding: 1.2rem 2.5rem;
             display: flex;
             justify-content: space-between;
@@ -66,9 +66,9 @@
         }
 
         .navbar .logo img {
+            height: 50px; /* Tinggi logo tetap */
             width: auto;
-            max-width: 150px;
-            max-height: 60px;
+            max-width: 150px; /* Lebar maksimal logo */
             display: block;
         }
 
@@ -84,7 +84,7 @@
         }
 
         .navbar-links a {
-            color: var(--white); /* Link navbar putih */
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease, transform 0.2s ease;
@@ -97,7 +97,7 @@
             position: absolute;
             width: 0;
             height: 3px;
-            background-color: var(--highlight-color); /* Underline pakai highlight color */
+            background-color: var(--highlight-color);
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
@@ -105,7 +105,7 @@
         }
 
         .navbar-links a:hover {
-            color: var(--highlight-color); /* Hover pakai highlight color */
+            color: var(--highlight-color);
             transform: translateY(-2px);
         }
 
@@ -118,7 +118,7 @@
             display: none;
             background: none;
             border: none;
-            color: var(--white); /* Tombol menu mobile putih */
+            color: var(--white);
             font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -179,8 +179,8 @@
             display: inline-block;
             margin: 0.8rem;
             padding: 1.2rem 2.2rem;
-            background-color: var(--highlight-color); /* Tombol CTA pakai highlight color (Amber Yellow) */
-            color: var(--primary-color); /* Teks tombol CTA pakai primary color (Dark Brown) */
+            background-color: var(--highlight-color);
+            color: var(--primary-color);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
@@ -191,7 +191,7 @@
         }
 
         .cta-buttons a:hover {
-            background-color: var(--primary-color); /* Saat hover, warna dibalik */
+            background-color: var(--primary-color);
             color: var(--white);
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
@@ -210,7 +210,7 @@
         }
 
         section:nth-of-type(even) {
-            background-color: var(--secondary-color); /* Section genap pakai secondary color (Light Beige) */
+            background-color: var(--secondary-color);
         }
 
         section h2 {
@@ -218,7 +218,7 @@
             margin-bottom: 3.5rem;
             position: relative;
             display: inline-block;
-            color: var(--accent-color); /* Judul section pakai accent color (Medium Brown) */
+            color: var(--accent-color);
         }
 
         section h2::after {
@@ -226,7 +226,7 @@
             position: absolute;
             width: 80px;
             height: 5px;
-            background-color: var(--primary-color); /* Garis bawah judul pakai primary color (Dark Brown) */
+            background-color: var(--primary-color);
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
@@ -260,7 +260,7 @@
         }
 
         .card h3 {
-            color: var(--primary-color); /* Judul card pakai primary color */
+            color: var(--primary-color);
             font-size: 2rem;
             margin-top: 0;
             margin-bottom: 1.2rem;
@@ -270,7 +270,7 @@
         }
 
         .card h3 i {
-            color: var(--accent-color); /* Ikon card pakai accent color */
+            color: var(--accent-color);
             font-size: 1.8rem;
         }
 
@@ -295,7 +295,7 @@
         }
 
         .card ul li i {
-            color: var(--primary-color); /* Ikon checklist pakai primary color */
+            color: var(--primary-color);
             margin-right: 0.8rem;
             font-size: 1.1rem;
         }
@@ -303,7 +303,7 @@
         .card button {
             margin-top: 1.5rem;
             padding: 1rem 2rem;
-            background-color: var(--primary-color); /* Tombol card pakai primary color */
+            background-color: var(--primary-color);
             color: var(--white);
             border: none;
             border-radius: 8px;
@@ -317,14 +317,14 @@
         }
 
         .card button:hover {
-            background-color: var(--accent-color); /* Hover tombol card pakai accent color */
+            background-color: var(--accent-color);
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
         /* About Section */
         #tentang-kami {
-            background-color: var(--secondary-color); /* Latar belakang about pakai secondary color */
+            background-color: var(--secondary-color);
             text-align: center;
         }
 
@@ -354,14 +354,14 @@
 
         .value-item i {
             font-size: 3rem;
-            color: var(--accent-color); /* Ikon value item pakai accent color */
+            color: var(--accent-color);
             margin-bottom: 1.2rem;
         }
 
         .value-item h4 {
             margin-bottom: 0.8rem;
             font-size: 1.5rem;
-            color: var(--primary-color); /* Judul value item pakai primary color */
+            color: var(--primary-color);
         }
         .value-item p {
             font-size: 1rem;
@@ -381,14 +381,14 @@
             max-width: 700px;
             margin: 2.5rem auto;
             text-align: left;
-            border: 1px solid var(--highlight-color); /* Border form pakai highlight color */
+            border: 1px solid var(--highlight-color);
         }
 
         .contact-form-container label {
             display: block;
             margin-bottom: 0.8rem;
             font-weight: 600;
-            color: var(--accent-color); /* Label form pakai accent color */
+            color: var(--accent-color);
             font-size: 1.05rem;
         }
 
@@ -406,8 +406,8 @@
 
         .contact-form-container input:focus,
         .contact-form-container textarea:focus {
-            border-color: var(--primary-color); /* Focus border pakai primary color */
-            box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.2); /* Ring focus primary color transparan */
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(60, 179, 113, 0.2); /* Menggunakan primary-color dengan opasitas */
             outline: none;
         }
 
@@ -420,7 +420,7 @@
             display: block;
             width: 100%;
             padding: 1.2rem;
-            background-color: var(--primary-color); /* Tombol form pakai primary color */
+            background-color: var(--primary-color);
             color: var(--white);
             border: none;
             border-radius: 8px;
@@ -432,17 +432,17 @@
         }
 
         .contact-form-container button:hover {
-            background-color: var(--accent-color); /* Hover tombol form pakai accent color */
+            background-color: var(--accent-color);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary-color); /* Footer pakai primary color */
+            background-color: var(--primary-color);
             padding: 4rem 2.5rem;
             text-align: center;
-            color: var(--white); /* Teks footer putih */
+            color: var(--white);
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
 
@@ -453,23 +453,25 @@
         }
 
         footer strong {
-            color: var(--highlight-color); /* Strong di footer pakai highlight color */
+            color: var(--highlight-color);
         }
 
         .social-links {
             margin-top: 1.5rem;
             margin-bottom: 2rem;
+            display: flex; /* Menggunakan flexbox untuk mengatur tautan sosial */
+            justify-content: center;
+            gap: 1.5rem; /* Memberikan jarak antar ikon */
         }
 
         .social-links a {
-            color: var(--white); /* Ikon sosial putih */
-            font-size: 2rem;
-            margin: 0 1rem;
+            color: var(--white);
+            font-size: 2.2rem; /* Ukuran ikon sosial lebih besar */
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: var(--highlight-color); /* Hover ikon sosial pakai highlight color */
+            color: var(--highlight-color);
             transform: translateY(-3px) scale(1.1);
         }
 
@@ -479,12 +481,13 @@
             justify-content: center;
             gap: 1.5rem;
             margin-top: 3rem;
+            flex-wrap: wrap; /* Agar tombol bisa wrap di layar kecil */
         }
 
         .nav-buttons button {
             padding: 1rem 2rem;
-            background-color: var(--highlight-color); /* Tombol footer pakai highlight color */
-            color: var(--primary-color); /* Teks tombol footer pakai primary color */
+            background-color: var(--highlight-color);
+            color: var(--primary-color);
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -495,7 +498,7 @@
         }
 
         .nav-buttons button:hover {
-            background-color: var(--secondary-color); /* Hover tombol footer pakai secondary color */
+            background-color: var(--secondary-color);
             color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
@@ -504,14 +507,13 @@
             margin-right: 8px;
         }
 
-        /* Responsive Design (tetap sama dengan penyesuaian warna) */
+        /* Responsive Design */
         @media (max-width: 1024px) { /* Untuk Laptop */
             .navbar .logo {
                 font-size: 1.4rem;
             }
             .navbar .logo img {
-                max-width: 120px;
-                max-height: 50px;
+                height: 45px;
             }
             .navbar-links li {
                 margin-left: 1.8rem;
@@ -546,10 +548,12 @@
                 width: 100%;
                 background-color: var(--primary-color);
                 position: absolute;
-                top: 70px;
+                top: 70px; /* Sesuaikan dengan tinggi navbar */
                 left: 0;
                 padding: 1.5rem 0;
                 box-shadow: 0 5px 10px var(--shadow-light);
+                overflow-y: auto; /* Agar bisa scroll jika banyak item */
+                max-height: calc(100vh - 70px); /* Batasi tinggi menu agar tidak keluar layar */
             }
 
             .navbar-links.active {
@@ -659,9 +663,11 @@
             footer {
                 padding: 3rem 1.5rem;
             }
+            .social-links {
+                gap: 1rem; /* Kurangi jarak antar ikon di mobile */
+            }
             .social-links a {
-                font-size: 1.7rem;
-                margin: 0 0.7rem;
+                font-size: 1.8rem; /* Sesuaikan ukuran ikon sosial */
             }
             .nav-buttons {
                 flex-direction: column;
@@ -681,8 +687,7 @@
                 font-size: 1.2rem;
             }
             .navbar .logo img {
-                max-width: 90px;
-                max-height: 40px;
+                height: 35px; /* Lebih kecil lagi untuk HP */
             }
             .menu-toggle {
                 font-size: 1.6rem;
@@ -751,7 +756,7 @@
     <nav class="navbar">
         <a href="#hero" class="logo">
             <img src="logo-msi.png" alt="Logo MSI">
-            </a>
+        </a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
@@ -888,14 +893,13 @@
         <p><strong>Kenapa Harus MSI?</strong></p>
         <p>Mendukung petani lokal • Produk berkelanjutan • Jaringan nasional • Terpercaya sejak 2010</p>
         <div class="social-links">
-            <a href="https://facebook.com/msi.official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://facebook.com/msi.official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://instagram.com/msi.official" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com/msi.official" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com/company/msi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/msi.official" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a> <a href="https://linkedin.com/company/msi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p>📍 Kantor Sekertariat MSI Lampung, Ruko Transmart Blok D No.65, Way Halim, Kota Bandar Lampung, Indonesia</p>
+        <p>📍 Kantor Sekertariat MSI Lampung, Ruko Transmart Blok D No.65, Way Halim, Kota Bandar Lampung, Indonesia</p>
         <p>📞 +62821-8340-1118 | ✉️ info@msi.or.id</p>
-        <p>© 2025 Masyarakat Singkong Indonesia. Hak Cipta Dilindungi.desgined by R8</p>
+        <p>© 2025 Masyarakat Singkong Indonesia. Hak Cipta Dilindungi. Desgined by R8</p>
 
         <div class="nav-buttons">
             <button onclick="goBack()"><i class="fas fa-arrow-left"></i> Kembali ke Halaman Sebelumnya</button>
@@ -918,6 +922,7 @@
             }
         });
 
+        // Close mobile nav when a link is clicked
         navbarLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navbarLinks.classList.contains('active')) {

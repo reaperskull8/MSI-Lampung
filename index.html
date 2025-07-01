@@ -4,43 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masyarakat Singkong Indonesia (MSI) - Inovasi & Keberlanjutan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2f6239; /* Dark Green */
-            --secondary-color: #e6f4ea; /* Light Green */
-            --accent-color: #d6ecd4; /* Lighter Green */
-            --text-color: #2d2d2d;
-            --background-color: #fdfcf5;
+            /* Palet Warna Baru: Lebih Segar dan Modern */
+            --primary-color: #388E3C; /* Hijau Moderat yang Segar */
+            --secondary-color: #DCEDC8; /* Hijau Muda Lembut */
+            --accent-color: #689F38; /* Hijau Lebih Gelap sebagai Aksen Kontras */
+            --highlight-color: #A5D6A7; /* Hijau Cerah untuk Highlight */
+            --text-color: #333333; /* Darker text for better readability */
+            --background-color: #F8F9FA; /* Off-white yang lebih cerah */
             --white: #ffffff;
-            --shadow-light: rgba(0,0,0,0.1);
-            --border-radius: 8px;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --border-radius: 12px; /* Sedikit lebih melengkung */
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling untuk navigasi */
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif; /* Font baru untuk body */
             margin: 0;
             padding: 0;
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.8; /* Sedikit lebih tinggi untuk keterbacaan */
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif; /* Font baru untuk judul */
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
         }
 
         /* Navigation Bar */
         .navbar {
             background-color: var(--primary-color);
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem; /* Padding sedikit lebih besar */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px var(--shadow-light);
+            box-shadow: 0 4px 10px var(--shadow-light); /* Bayangan lebih halus */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -48,20 +56,20 @@
 
         .navbar .logo {
             color: var(--white);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem; /* Ukuran font logo sedikit lebih besar */
             font-weight: 700;
             text-decoration: none;
             display: flex;
             align-items: center;
+            gap: 10px; /* Jarak antara logo dan teks */
         }
 
-        /* Perbaikan untuk Logo agar Proporsional */
         .navbar .logo img {
-            width: auto; /* Memastikan lebar otomatis untuk menjaga aspek rasio */
-            max-width: 150px; /* Lebar maksimum logo untuk desktop */
-            max-height: 60px; /* Tinggi maksimum logo untuk desktop */
-            display: block; /* Menghilangkan spasi di bawah gambar */
+            width: auto;
+            max-width: 150px;
+            max-height: 60px;
+            display: block;
         }
 
         .navbar-links {
@@ -72,18 +80,37 @@
         }
 
         .navbar-links li {
-            margin-left: 2rem;
+            margin-left: 2.5rem; /* Jarak antar link sedikit lebih besar */
         }
 
         .navbar-links a {
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease; /* Tambah transisi transform */
+            position: relative; /* Untuk underline efek hover */
+            padding-bottom: 5px;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px; /* Ketebalan underline */
+            background-color: var(--highlight-color); /* Warna underline highlight */
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
         }
 
         .navbar-links a:hover {
-            color: var(--secondary-color);
+            color: var(--highlight-color);
+            transform: translateY(-2px);
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
         }
 
         /* Mobile Nav Button */
@@ -92,417 +119,640 @@
             background: none;
             border: none;
             color: var(--white);
-            font-size: 1.8rem;
+            font-size: 2rem; /* Ukuran ikon lebih besar */
             cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x500?text=Inovasi+Singkong') no-repeat center center/cover; /* Placeholder image, consider replacing with a real image */
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://via.placeholder.com/1500x700?text=Inovasi+Singkong+MSI') no-repeat center center/cover fixed; /* Latar belakang gambar tetap (paralaks) */
             color: var(--white);
-            padding: 6rem 2rem;
+            padding: 8rem 2rem; /* Padding lebih besar */
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 450px;
+            min-height: 550px; /* Tinggi minimum lebih besar */
+            position: relative;
+            overflow: hidden; /* Pastikan tidak ada overflow dari gambar */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Sedikit overlay gelap lagi */
+            z-index: 1;
+        }
+
+        .hero h1, .hero p, .hero .cta-buttons {
+            position: relative;
+            z-index: 2; /* Pastikan konten di atas overlay */
         }
 
         .hero h1 {
             color: var(--white);
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 4.2rem; /* Ukuran font lebih besar */
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4); /* Text shadow untuk kontras */
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
+            font-size: 1.5rem; /* Ukuran font lebih besar */
+            max-width: 900px; /* Lebar maksimum paragraf */
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
         }
 
         .cta-buttons a {
             display: inline-block;
-            margin: 0.7rem;
-            padding: 1rem 1.8rem;
-            background-color: var(--primary-color);
-            color: var(--white);
+            margin: 0.8rem;
+            padding: 1.2rem 2.2rem; /* Padding lebih besar */
+            background-color: var(--highlight-color); /* Warna highlight untuk CTA */
+            color: var(--primary-color); /* Teks dengan warna primary */
             text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px var(--shadow-light);
+            border-radius: 50px; /* Bentuk pil untuk tombol */
+            font-weight: 700; /* Lebih tebal */
+            font-size: 1.1rem; /* Ukuran font sedikit lebih besar */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px var(--shadow-medium); /* Bayangan lebih jelas */
+            border: 2px solid var(--highlight-color); /* Border agar tetap terlihat saat hover */
         }
 
         .cta-buttons a:hover {
-            background-color: #3e814a; /* Slightly darker primary */
-            transform: translateY(-2px);
+            background-color: var(--primary-color); /* Balik warna saat hover */
+            color: var(--white);
+            transform: translateY(-5px) scale(1.02); /* Efek melayang lebih terasa */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            border-color: var(--white); /* Border putih saat hover */
+        }
+        .cta-buttons a i {
+            margin-left: 10px;
         }
 
         /* General Section Styling */
         section {
-            padding: 4rem 2rem;
+            padding: 5rem 2.5rem; /* Padding lebih besar */
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
+        section:nth-of-type(even) { /* Latar belakang berbeda untuk section genap */
+            background-color: var(--secondary-color);
+        }
+
         section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 3rem; /* Ukuran judul section lebih besar */
+            margin-bottom: 3.5rem;
             position: relative;
             display: inline-block;
+            color: var(--accent-color); /* Judul section dengan warna aksen */
         }
 
         section h2::after {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 4px;
+            width: 80px; /* Garis bawah lebih panjang */
+            height: 5px; /* Garis bawah lebih tebal */
             background-color: var(--primary-color);
-            bottom: -10px;
+            bottom: -15px; /* Jarak dari teks */
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
-        .product-grid, .service-grid {
+        .product-grid, .service-grid, .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Min-width sedikit diatur ulang */
+            gap: 2.5rem; /* Jarak antar grid lebih besar */
+            margin-top: 3rem;
             justify-content: center;
-            margin-top: 2rem;
         }
 
         .card {
             background-color: var(--white);
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px var(--shadow-light);
-            padding: 2rem;
+            box-shadow: 0 8px 20px var(--shadow-light); /* Bayangan lebih menonjol */
+            padding: 2.5rem; /* Padding lebih besar */
             text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transisi lebih halus */
+            border: 1px solid var(--secondary-color); /* Sedikit border */
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-8px) scale(1.02); /* Efek melayang yang lebih dramatis */
+            box-shadow: 0 15px 30px var(--shadow-medium); /* Bayangan lebih dalam */
         }
 
         .card h3 {
             color: var(--primary-color);
-            font-size: 1.8rem;
+            font-size: 2rem; /* Ukuran judul card lebih besar */
             margin-top: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--accent-color); /* Ikon dengan warna aksen */
+            font-size: 1.8rem;
         }
 
         .card p {
-            font-size: 1rem;
+            font-size: 1.05rem; /* Ukuran font paragraf sedikit lebih besar */
             color: #555;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             flex-grow: 1;
         }
 
         .card ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .card ul li {
-            margin-bottom: 0.5rem;
-            color: #444;
+            margin-bottom: 0.8rem; /* Jarak antar list item */
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
         }
 
         .card ul li i {
             color: var(--primary-color);
-            margin-right: 0.5rem;
+            margin-right: 0.8rem; /* Jarak ikon dari teks */
+            font-size: 1.1rem;
         }
 
         .card button {
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem; /* Padding lebih besar */
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Sudut sedikit melengkung */
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Ukuran font button lebih besar */
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            align-self: flex-start; /* Align button to the left within card */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            align-self: center; /* Tombol di tengah card */
+            width: fit-content; /* Sesuai dengan konten */
         }
 
         .card button:hover {
-            background-color: #3e814a;
-            transform: translateY(-1px);
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
         /* About Section */
         #tentang-kami {
             background-color: var(--secondary-color);
-            text-align: left;
+            text-align: center; /* Kembalikan ke tengah untuk konsistensi */
         }
 
         #tentang-kami p {
-            max-width: 800px;
-            margin: 0 auto 1.5rem auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
+            max-width: 900px; /* Lebar teks lebih besar */
+            margin: 0 auto 2rem auto;
+            font-size: 1.15rem; /* Font size sedikit lebih besar */
+            line-height: 1.9;
         }
 
         .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            text-align: center;
+            margin-top: 3rem;
         }
 
         .value-item {
             background-color: var(--white);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: var(--border-radius);
-            box-shadow: 0 2px 10px var(--shadow-light);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .value-item i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 3rem; /* Ukuran ikon lebih besar */
+            color: var(--accent-color); /* Warna ikon aksen */
+            margin-bottom: 1.2rem;
         }
 
         .value-item h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem; /* Ukuran judul value item lebih besar */
+            color: var(--primary-color);
         }
+        .value-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
 
         /* Contact Form Section */
         #kontak {
             background-color: var(--background-color);
-            text-align: center;
         }
 
         .contact-form-container {
             background-color: var(--white);
-            padding: 2.5rem;
+            padding: 3rem; /* Padding form lebih besar */
             border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px var(--shadow-light);
-            max-width: 600px;
-            margin: 2rem auto;
+            box-shadow: 0 8px 20px var(--shadow-light);
+            max-width: 700px; /* Lebar form sedikit lebih lebar */
+            margin: 2.5rem auto;
             text-align: left;
+            border: 1px solid var(--highlight-color); /* Border pada form */
         }
 
         .contact-form-container label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--accent-color); /* Warna label form */
+            font-size: 1.05rem;
         }
 
-        .contact-form-container input[type="text"],
-        .contact-form-container input[type="email"],
+        .contact-form-container input,
         .contact-form-container textarea {
-            width: calc(100% - 20px); /* Adjust for padding */
-            padding: 10px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: calc(100% - 24px); /* Sesuaikan untuk padding */
+            padding: 12px; /* Padding input lebih besar */
+            margin-bottom: 1.8rem;
+            border: 1px solid #ddd; /* Border lebih terang */
+            border-radius: 8px; /* Sudut lebih melengkung */
             font-size: 1rem;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.2); /* Ring focus yang lebih halus */
+            outline: none;
         }
 
         .contact-form-container textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px; /* Tinggi minimum textarea lebih besar */
         }
 
         .contact-form-container button {
             display: block;
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem; /* Padding button lebih besar */
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 8px;
+            font-size: 1.2rem; /* Ukuran font button lebih besar */
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px var(--shadow-light);
         }
 
         .contact-form-container button:hover {
-            background-color: #3e814a;
-            transform: translateY(-1px);
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         /* Footer */
         footer {
-            background-color: var(--accent-color);
-            padding: 3rem 2rem;
+            background-color: var(--primary-color); /* Footer pakai warna primary */
+            padding: 4rem 2.5rem; /* Padding lebih besar */
             text-align: center;
-            color: var(--text-color);
+            color: var(--white); /* Teks putih di footer */
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
 
         footer p {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         footer strong {
-            color: var(--primary-color);
+            color: var(--highlight-color); /* Highlight color untuk strong */
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .social-links a {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin: 0 0.8rem;
-            transition: color 0.3s ease;
+            color: var(--white); /* Ikon sosial putih */
+            font-size: 2rem; /* Ukuran ikon sosial lebih besar */
+            margin: 0 1rem;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: #3e814a;
+            color: var(--highlight-color);
+            transform: translateY(-3px) scale(1.1);
         }
 
         /* Added Buttons for Navigation */
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem; /* Add some space above the buttons */
+            gap: 1.5rem; /* Jarak antar tombol navigasi footer */
+            margin-top: 3rem;
         }
 
         .nav-buttons button {
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary-color);
-            color: var(--white);
+            padding: 1rem 2rem;
+            background-color: var(--highlight-color); /* Warna highlight untuk tombol footer */
+            color: var(--primary-color); /* Teks dengan warna primary */
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-light);
         }
 
         .nav-buttons button:hover {
-            background-color: #3e814a;
-            transform: translateY(-1px);
+            background-color: var(--secondary-color); /* Warna secondary saat hover */
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
-
+        .nav-buttons button i {
+            margin-right: 8px;
+        }
 
         /* Responsive Design */
         @media (max-width: 1024px) { /* Untuk Laptop */
+            .navbar .logo {
+                font-size: 1.4rem;
+            }
             .navbar .logo img {
-                max-width: 120px; /* Sedikit lebih kecil untuk laptop */
+                max-width: 120px;
                 max-height: 50px;
+            }
+            .navbar-links li {
+                margin-left: 1.8rem;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            section h2 {
+                font-size: 2.5rem;
+            }
+            .card h3 {
+                font-size: 1.7rem;
+            }
+            .card h3 i {
+                font-size: 1.5rem;
+            }
+            .card button {
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 768px) { /* Untuk Tablet dan Mobile */
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
             .navbar-links {
-                display: none; /* Hide navigation links by default on small screens */
+                display: none;
                 flex-direction: column;
                 width: 100%;
                 background-color: var(--primary-color);
                 position: absolute;
-                top: 60px; /* Below the navbar */
+                top: 70px; /* Di bawah navbar */
                 left: 0;
-                padding: 1rem 0;
-                box-shadow: 0 2px 5px var(--shadow-light);
+                padding: 1.5rem 0;
+                box-shadow: 0 5px 10px var(--shadow-light);
             }
 
             .navbar-links.active {
-                display: flex; /* Show when active */
+                display: flex;
             }
 
             .navbar-links li {
-                margin: 0.5rem 0;
+                margin: 0.7rem 0;
                 text-align: center;
+            }
+            .navbar-links a {
+                padding: 10px 0; /* Tambah padding agar mudah diklik */
+            }
+            .navbar-links a::after {
+                height: 2px;
             }
 
             .menu-toggle {
-                display: block; /* Show menu toggle button */
+                display: block;
+                font-size: 1.8rem;
             }
 
+            .hero {
+                padding: 5rem 1.5rem;
+                min-height: 400px;
+            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
-
             .hero p {
+                font-size: 1.1rem;
+            }
+            .cta-buttons a {
+                padding: 1rem 1.8rem;
                 font-size: 1rem;
             }
 
-            .cta-buttons a {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
             section {
-                padding: 2.5rem 1.5rem;
+                padding: 3rem 1.5rem;
             }
 
             section h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+            }
+            section h2::after {
+                width: 60px;
+                height: 4px;
+                bottom: -10px;
             }
 
             .product-grid, .service-grid, .values-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .card {
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
             .card h3 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
-
+            .card h3 i {
+                font-size: 1.4rem;
+            }
+            .card p {
+                font-size: 0.95rem;
+            }
             .card button {
-                width: 100%;
-                text-align: center;
+                width: 80%; /* Tombol card lebih lebar di mobile */
+                align-self: center;
+                font-size: 0.95rem;
             }
 
-            /* Ukuran logo spesifik untuk tablet */
-            .navbar .logo img {
-                max-width: 100px; /* Ukuran logo untuk tablet */
-                max-height: 45px;
+            #tentang-kami p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .value-item i {
+                font-size: 2.5rem;
+            }
+            .value-item h4 {
+                font-size: 1.3rem;
+            }
+
+            .contact-form-container {
+                padding: 2.5rem;
+                margin: 2rem auto;
+            }
+            .contact-form-container label {
+                font-size: 1rem;
+            }
+            .contact-form-container input,
+            .contact-form-container textarea {
+                padding: 10px;
+                margin-bottom: 1.2rem;
+            }
+            .contact-form-container textarea {
+                min-height: 120px;
+            }
+            .contact-form-container button {
+                padding: 1rem;
+                font-size: 1.05rem;
+            }
+
+            footer {
+                padding: 3rem 1.5rem;
+            }
+            .social-links a {
+                font-size: 1.7rem;
+                margin: 0 0.7rem;
+            }
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            .nav-buttons button {
+                width: 90%;
+                max-width: 300px;
+                font-size: 0.95rem;
             }
         }
 
         @media (max-width: 480px) { /* Untuk HP */
+            .navbar .logo {
+                font-size: 1.2rem;
+            }
+            .navbar .logo img {
+                max-width: 90px;
+                max-height: 40px;
+            }
+            .menu-toggle {
+                font-size: 1.6rem;
+            }
+            .hero {
+                padding: 4rem 1rem;
+                min-height: 350px;
+            }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .hero p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             .cta-buttons a {
                 display: block;
-                margin: 0.5rem auto;
-                max-width: 250px;
+                margin: 0.6rem auto;
+                max-width: 280px;
+                padding: 0.9rem 1.5rem;
+            }
+            section {
+                padding: 2.5rem 1rem;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.8rem;
+            }
+            .card h3 {
+                font-size: 1.4rem;
+            }
+            .card h3 i {
+                font-size: 1.2rem;
+            }
+            .card p {
+                font-size: 0.9rem;
+            }
+            .card button {
+                width: 95%;
+                font-size: 0.9rem;
+            }
+            .contact-form-container {
+                padding: 2rem;
+            }
+            .contact-form-container input,
+            .contact-form-container textarea {
+                width: calc(100% - 20px);
+            }
+            .contact-form-container button {
+                font-size: 1rem;
             }
             footer {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
             }
-            /* Ukuran logo spesifik untuk HP */
-            .navbar .logo img {
-                max-width: 80px; /* Ukuran logo untuk HP */
-                max-height: 35px;
+            .social-links a {
+                font-size: 1.5rem;
             }
-            .nav-buttons {
-                flex-direction: column; /* Stack buttons vertically on small screens */
-                align-items: center;
+            .nav-buttons button {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#hero" class="logo"> <img src="logo-msi.png" alt="Logo MSI">
-        </a>
+        <a href="#hero" class="logo">
+            <img src="logo-msi.png" alt="Logo MSI">
+            </a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
@@ -515,7 +765,8 @@
         </ul>
     </nav>
 
-    <header class="hero" id="hero"> <h1>Inovasi Singkong untuk Masa Depan Berkelanjutan</h1>
+    <header class="hero" id="hero">
+        <h1>Inovasi Singkong untuk Masa Depan Berkelanjutan</h1>
         <p>Masyarakat Singkong Indonesia (MSI) hadir untuk mengubah limbah singkong menjadi berkah. Kami fokus pada pengembangan produk olahan, biomassa energi terbarukan, dan edukasi budidaya singkong modern, semua demi keberlanjutan ekonomi dan lingkungan.</p>
         <div class="cta-buttons">
             <a href="#produk">Lihat Produk <i class="fas fa-arrow-right"></i></a>
@@ -554,7 +805,7 @@
         <h2>Produk Unggulan Kami</h2>
         <div class="product-grid">
             <div class="card">
-                <h3>Pupuk Organik Limbah Singkong <i class="fas fa-seedling"></i></h3>
+                <h3><i class="fas fa-seedling"></i> Pupuk Organik Limbah Singkong</h3>
                 <p>Kompos premium berkualitas tinggi yang dibuat dari ampas dan kulit singkong. Sangat cocok untuk menyuburkan berbagai jenis tanah dan mendukung pertanian organik.</p>
                 <ul>
                     <li><i class="fas fa-check-circle"></i> Ramah lingkungan & alami</li>
@@ -564,13 +815,23 @@
                 <button onclick="window.location.href='produk.html'">Beli Sekarang</button>
             </div>
             <div class="card">
-                <h3>Produk Olahan Singkong <i class="fas fa-cookie-bite"></i></h3>
+                <h3><i class="fas fa-cookie-bite"></i> Produk Olahan Singkong</h3>
                 <p>Jelajahi beragam produk olahan singkong inovatif dari UMKM binaan MSI, mulai dari Tepung Mocaf serbaguna, keripik sehat renyah, hingga gula cair alami sebagai alternatif pemanis sehat.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Beragam pilihan produk</li>
+                    <li><i class="fas fa-check-circle"></i> Dukungan UMKM lokal</li>
+                    <li><i class="fas fa-check-circle"></i> Kualitas terjamin</li>
+                </ul>
                 <button onclick="window.location.href='produk.html'">Jelajahi Produk</button>
             </div>
             <div class="card">
-                <h3>Biomassa & Energi Terbarukan <i class="fas fa-burn"></i></h3>
+                <h3><i class="fas fa-burn"></i> Biomassa & Energi Terbarukan</h3>
                 <p>Solusi energi masa depan dari limbah singkong! Kami menyediakan briket dan pelet berkualitas tinggi sebagai alternatif bahan bakar yang bersih dan berkelanjutan untuk industri dan rumah tangga.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Energi bersih & terbarukan</li>
+                    <li><i class="fas fa-check-circle"></i> Efisien & ekonomis</li>
+                    <li><i class="fas fa-check-circle"></i> Ramah lingkungan</li>
+                </ul>
                 <button onclick="window.location.href='produk.html'">Cek Detail</button>
             </div>
         </div>
@@ -580,13 +841,23 @@
         <h2>Layanan Jasa MSI</h2>
         <div class="service-grid">
             <div class="card">
-                <h3>Konsultasi & Edukasi <i class="fas fa-chalkboard-teacher"></i></h3>
+                <h3><i class="fas fa-chalkboard-teacher"></i> Konsultasi & Edukasi</h3>
                 <p>Dapatkan bimbingan ahli dalam budidaya singkong modern, ikuti workshop praktis tentang pengolahan produk inovatif, dan raih sertifikasi usaha untuk meningkatkan kapabilitas bisnis Anda.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Workshop interaktif</li>
+                    <li><i class="fas fa-check-circle"></i> Bimbingan profesional</li>
+                    <li><i class="fas fa-check-circle"></i> Sertifikasi usaha</li>
+                </ul>
                 <button onclick="window.location.href='https://forms.gle/msi-edukasi-formulir'" target="_blank">Daftar Sekarang</button>
             </div>
             <div class="card">
-                <h3>Sistem Pembayaran & Keanggotaan <i class="fas fa-handshake"></i></h3>
+                <h3><i class="fas fa-handshake"></i> Sistem Pembayaran & Keanggotaan</h3>
                 <p>Memudahkan transaksi Anda dengan dukungan pembayaran melalui OVO, GoPay, DANA, QRIS, dan transfer bank. Nikmati harga dan penawaran khusus dengan bergabung menjadi anggota komunitas MSI.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Opsi pembayaran fleksibel</li>
+                    <li><i class="fas fa-check-circle"></i> Diskon & penawaran khusus</li>
+                    <li><i class="fas fa-check-circle"></i> Akses komunitas</li>
+                </ul>
                 <button onclick="window.location.href='https://wa.me/6281234567890?text=Halo%20MSI%2C%20saya%20ingin%20gabung%20komunitas'" target="_blank">Gabung Komunitas MSI</button>
             </div>
         </div>
@@ -640,7 +911,6 @@
 
         menuToggle.addEventListener('click', () => {
             navbarLinks.classList.toggle('active');
-            // Menampilkan/menyembunyikan tombol "Kembali" di nav mobile
             const mobileNavButton = document.querySelector('.mobile-only-nav-button');
             if (navbarLinks.classList.contains('active')) {
                 mobileNavButton.style.display = 'block';
@@ -649,7 +919,6 @@
             }
         });
 
-        // Close mobile menu when a link is clicked
         navbarLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navbarLinks.classList.contains('active')) {
@@ -659,16 +928,12 @@
             });
         });
 
-        // Function to go back to the previous page in history
         function goBack() {
             window.history.back();
         }
 
-        // Function to go to the home section (top of the current page)
         function goToHome() {
-            window.location.href = '#hero'; // Scroll to the hero section
-            // Atau jika ingin me-refresh halaman ke paling atas:
-            // window.location.href = '/'; // Ganti dengan URL beranda jika ini adalah halaman yang berbeda
+            window.location.href = '#hero';
         }
     </script>
 </body>

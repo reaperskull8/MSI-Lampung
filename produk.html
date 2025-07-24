@@ -1,115 +1,515 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produk Unggulan - MSI Lampung</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function showTab(tabIndex) {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach((tab, index) => {
-        tab.style.display = index === tabIndex ? 'block' : 'none';
-      });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk MSI - Beli Sekarang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variabel CSS --- */
+        :root {
+            --primary-color: #2f6239; /* Dark Green */
+            --secondary-color: #e6f4ea; /* Light Green for backgrounds */
+            --accent-color: #d6ecd4; /* Lighter Green for borders */
+            --text-color: #2d2d2d;
+            --background-color: #fdfcf5;
+            --white: #ffffff;
+            --shadow-light: rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --button-hover-darken: #3e814a; /* Slightly darker primary for hover */
+            --button-text-color: #ffffff;
+        }
 
-      const buttons = document.querySelectorAll('.tab-button');
-      buttons.forEach((btn, index) => {
-        btn.classList.toggle('active', index === tabIndex);
-      });
-    }
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Menggunakan Open Sans sebagai font utama */
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 2rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    window.onload = function () {
-      showTab(0);
-    };
-  </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
-    }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif; /* Menggunakan Montserrat untuk judul */
+            font-weight: 700; /* Lebih tebal */
+            margin-bottom: 3rem;
+            font-size: 2.8rem; /* Ukuran lebih besar */
+        }
 
-    header {
-      background: #006400;
-      padding: 1em;
-      text-align: center;
-      color: white;
-    }
+        /* Helper class for no-scroll */
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh; /* Pastikan tinggi viewport penuh untuk mencegah scroll */
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
+        /* --- Product List --- */
+        .product-list {
+            max-width: 1000px; /* Lebar maksimal diperluas sedikit */
+            margin: 2rem auto;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Min width sedikit dikurangi agar lebih fleksibel */
+            gap: 1.8rem; /* Spasi antar produk */
+        }
+        .product-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Konten di tengah */
+        }
+        .product-item:hover {
+            transform: translateY(-8px); /* Efek hover lebih menonjol */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Bayangan lebih kuat */
+        }
+        .product-item img {
+            max-width: 100%;
+            height: 180px; /* Tinggi gambar fixed */
+            object-fit: cover; /* Pastikan gambar proporsional */
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+        .product-item h3 {
+            margin: 0 0 0.7rem 0;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem; /* Ukuran judul produk */
+            line-height: 1.3;
+        }
+        .product-item p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.2rem;
+            flex-grow: 1; /* Agar deskripsi memiliki tinggi yang sama */
+            min-height: 60px; /* Minimal tinggi deskripsi agar layout lebih seragam */
+        }
+        .product-item .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.3rem; /* Ukuran harga */
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .product-item button {
+            background-color: var(--primary-color);
+            color: var(--button-text-color);
+            border: none;
+            padding: 0.9rem 1.8rem; /* Padding lebih besar */
+            border-radius: 50px; /* Tombol lebih melengkung */
+            cursor: pointer;
+            font-size: 1.1rem; /* Ukuran teks tombol */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            display: flex; /* Untuk ikon */
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem; /* Spasi antar teks dan ikon */
+        }
+        .product-item button:hover {
+            background-color: var(--button-hover-darken);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      background: #e9ecef;
-      padding: 1em;
-    }
+        /* --- Payment Modal --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1001; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ more opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 1rem; /* Adjusted padding */
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-content {
+            background-color: var(--white);
+            margin: auto;
+            padding: 3rem; /* Padding lebih besar */
+            border-radius: var(--border-radius);
+            width: 95%;
+            max-width: 650px; /* Max width diperluas sedikit */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            position: relative;
+            text-align: center;
+            animation: slideInTop 0.4s ease-out;
+        }
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem; /* Ukuran judul modal */
+            font-family: 'Montserrat', sans-serif;
+        }
+        .modal-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        .modal-content strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .modal-content .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem; /* Spasi antar opsi pembayaran */
+            margin-top: 2.5rem;
+            text-align: left; /* Teks opsi pembayaran ke kiri */
+        }
+        .modal-content .payment-option {
+            border: 1px solid var(--accent-color);
+            padding: 1.5rem; /* Padding lebih besar */
+            border-radius: var(--border-radius);
+            background-color: var(--secondary-color);
+            transition: background-color 0.3s ease;
+        }
+        .modal-content .payment-option:hover {
+            background-color: var(--accent-color); /* Efek hover pada opsi pembayaran */
+        }
+        .modal-content .payment-option h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-size: 1.3rem; /* Ukuran judul opsi pembayaran */
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .modal-content .payment-option h4 .fas,
+        .modal-content .payment-option h4 .fab {
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
+        .modal-content .payment-option p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        .modal-content .qr-code-img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 1.5rem auto 1rem auto; /* Margin atas lebih besar */
+            border: 5px solid var(--white); /* Border tebal putih */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Bayangan pada QR */
+            border-radius: 5px;
+        }
 
-    .tab-button {
-      padding: 0.5em 1em;
-      border: none;
-      background: #ccc;
-      cursor: pointer;
-    }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px; /* Ukuran tombol close lebih besar */
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
 
-    .tab-button.active {
-      background: #006400;
-      color: white;
-      font-weight: bold;
-    }
+        /* WhatsApp Button in Modal */
+        #whatsappLink {
+            display: inline-flex; /* Gunakan flexbox untuk ikon dan teks */
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem; /* Spasi antar ikon dan teks */
+            padding: 12px 25px; /* Padding lebih besar */
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            border-radius: 50px; /* Lebih melengkung */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #whatsappLink:hover {
+            background-color: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
-    .tab-content {
-      display: none;
-      padding: 2em;
-      background: white;
-      border-top: 3px solid #006400;
-    }
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    .product {
-      margin-top: 1em;
-    }
-  </style>
+        @keyframes slideInTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* --- Responsive adjustments --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+            .product-list {
+                grid-template-columns: 1fr; /* Satu kolom untuk mobile */
+                gap: 1.2rem;
+                margin: 1rem auto;
+            }
+            .product-item {
+                padding: 1rem;
+            }
+            .product-item h3 {
+                font-size: 1.6rem;
+            }
+            .modal-content {
+                padding: 2rem 1.5rem; /* Padding disesuaikan */
+                width: 95%;
+            }
+            .modal-content h2 {
+                font-size: 2rem;
+            }
+            .modal-content .payment-option h4 {
+                font-size: 1.1rem;
+            }
+            .close-button {
+                font-size: 32px;
+                top: 10px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            .product-item h3 {
+                font-size: 1.4rem;
+            }
+            .product-item p {
+                min-height: unset; /* Hapus min-height pada deskripsi agar lebih fleksibel di layar kecil */
+            }
+            .modal-content {
+                padding: 1.5rem 1rem;
+            }
+            .modal-content h2 {
+                font-size: 1.6rem;
+            }
+            .modal-content p, .modal-content .payment-option p {
+                font-size: 0.9rem;
+            }
+            #whatsappLink {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <h1>Produk Unggulan MSI Lampung</h1>
-  </header>
+    <h1>Daftar Produk Unggulan MSI</h1>
+    <div class="product-list">
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Pupuk+Organik+MSI" alt="Pupuk Organik Limbah Singkong">
+            <h3>Pupuk Organik Limbah Singkong</h3>
+            <p>Kompos premium berkualitas tinggi yang dibuat dari ampas dan kulit singkong. Sangat cocok untuk menyuburkan berbagai jenis tanah dan mendukung pertanian organik.</p>
+            <span class="price">Rp 20.000 / karung (25 kg)</span>
+            <button class="buy-button" data-product="Pupuk Organik Limbah Singkong" data-price="20000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Tepung+Mocaf+MSI" alt="Tepung Mocaf">
+            <h3>Tepung Mocaf (Modified Cassava Flour)</h3>
+            <p>Tepung sehat tanpa gluten dari singkong. Cocok untuk aneka kue, roti, dan pengganti tepung terigu.</p>
+            <span class="price">Rp 15.000 / kg</span>
+            <button class="buy-button" data-product="Tepung Mocaf" data-price="15000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Briket+Singkong+MSI" alt="Briket Singkong (Biomassa)">
+            <h3>Briket Singkong (Biomassa)</h3>
+            <p>Solusi energi masa depan dari limbah singkong! Briket berkualitas tinggi sebagai alternatif bahan bakar yang bersih dan berkelanjutan untuk industri kecil dan rumah tangga.</p>
+            <span class="price">Mulai dari Rp 5.000 / kg</span>
+            <button class="buy-button" data-product="Briket Singkong" data-price="5000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Keripik+Singkong+MSI" alt="Keripik Singkong Renyah Aneka Rasa">
+            <h3>Keripik Singkong Renyah Aneka Rasa</h3>
+            <p>Snack sehat dan renyah dari singkong pilihan mitra UMKM binaan MSI, dengan berbagai varian rasa seperti Original, Pedas, Balado, dan Keju.</p>
+            <span class="price">Rp 10.000 / bungkus (100 gr)</span>
+            <button class="buy-button" data-product="Keripik Singkong Renyah Aneka Rasa" data-price="10000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Gula+Cair+MSI" alt="Gula Cair Singkong Organik">
+            <h3>Gula Cair Singkong Organik</h3>
+            <p>Pemanis alami yang lebih sehat dari singkong, alternatif pengganti gula pasir. Cocok untuk minuman, makanan, atau bahan baku industri.</p>
+            <span class="price">Rp 25.000 / botol (500 ml)</span>
+            <button class="buy-button" data-product="Gula Cair Singkong Organik" data-price="25000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Bioetanol+MSI" alt="Bioetanol Singkong (Trial Kit)">
+            <h3>Bioetanol Singkong (Trial Kit)</h3>
+            <p>Kit percobaan bioetanol dari singkong untuk edukasi dan riset skala kecil. Pelajari proses konversi biomassa menjadi bahan bakar terbarukan.</p>
+            <span class="price">Rp 150.000 / kit</span>
+            <button class="buy-button" data-product="Bioetanol Singkong (Trial Kit)" data-price="150000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Pelet+Pakan+MSI" alt="Pelet Pakan Ternak Singkong">
+            <h3>Pelet Pakan Ternak Singkong</h3>
+            <p>Pakan ternak bergizi tinggi yang diformulasikan dari limbah singkong. Efisien dan ekonomis untuk peternakan modern.</p>
+            <span class="price">Rp 8.000 / kg</span>
+            <button class="buy-button" data-product="Pelet Pakan Ternak Singkong" data-price="8000">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="product-item">
+            <img src="https://via.placeholder.com/300x180/2f6239/ffffff?text=Bibit+Singkong+MSI" alt="Bibit Unggul Singkong Varietas Lokal">
+            <h3>Bibit Unggul Singkong Varietas Lokal</h3>
+            <p>Dapatkan bibit singkong unggul dari varietas lokal pilihan yang tahan penyakit dan memiliki potensi hasil panen tinggi.</p>
+            <span class="price">Rp 500 / batang</span>
+            <button class="buy-button" data-product="Bibit Unggul Singkong Varietas Lokal" data-price="500">
+                <i class="fas fa-shopping-cart"></i> Beli Sekarang
+            </button>
+        </div>
+    </div>
 
-  <nav>
-    <button class="tab-button" onclick="showTab(0)">Singkong & Umbi</button>
-    <button class="tab-button" onclick="showTab(1)">Tepung & Olahan</button>
-    <button class="tab-button" onclick="showTab(2)">Pupuk & Konsultan</button>
-  </nav>
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" role="button" aria-label="Tutup Modal">&times;</span>
+            <h2>Pembayaran untuk <span id="modalProductName"></span></h2>
+            <p>Total yang harus dibayar: <strong id="modalProductPrice"></strong></p>
+            <p>Silakan pilih metode pembayaran Anda atau hubungi admin untuk konfirmasi.</p>
 
-  <main>
-    <section class="tab-content">
-      <h2>Singkong & Umbi</h2>
-      <div class="product">
-        <p>Kami menyediakan singkong pilihan kualitas ekspor dan umbi lainnya hasil kerja sama petani lokal.</p>
-      </div>
-    </section>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <h4><i class="fas fa-qrcode"></i> QRIS (DANA, OVO, GoPay, LinkAja, dll.)</h4>
+                    <p>Scan QR Code di bawah ini untuk melakukan pembayaran.</p>
+                    <img src="https://via.placeholder.com/200x200/2f6239/ffffff?text=QRIS+Code+MSI" alt="QRIS Code MSI" class="qr-code-img">
+                    <p style="font-size: 0.85rem; color: #777;">*Pastikan Anda memindai dengan aplikasi pembayaran yang mendukung QRIS.</p>
+                </div>
+                <div class="payment-option">
+                    <h4><i class="fas fa-university"></i> Transfer Bank</h4>
+                    <p>Silakan lakukan transfer ke rekening berikut:</p>
+                    <p><strong>Bank:</strong> Bank Rakyat Indonesia (BRI)</p>
+                    <p><strong>No. Rekening:</strong> <span id="bankAccountNumber">1234-5678-9012-3456</span></p>
+                    <p><strong>Atas Nama:</strong> PT. Masyarakat Singkong Indonesia</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem;">Setelah pembayaran, mohon konfirmasi ke admin kami melalui WhatsApp.</p>
+            <a id="whatsappLink" href="#" target="_blank" style="display: inline-block;">
+                <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+            </a>
+        </div>
+    </div>
 
-    <section class="tab-content">
-      <h2>Tepung & Olahan</h2>
-      <div class="product">
-        <p>Produk olahan seperti tepung tapioka, mocaf, chips, dan bahan pangan lokal lainnya.</p>
-      </div>
-    </section>
+<script>
+    const paymentModal = document.getElementById('paymentModal');
+    const productNameSpan = document.getElementById('modalProductName');
+    const productPriceSpan = document.getElementById('modalProductPrice');
+    const bankAccountNumberSpan = document.getElementById('bankAccountNumber');
+    const whatsappLink = document.getElementById('whatsappLink');
+    const closeButton = document.querySelector('.close-button');
+    const buyButtons = document.querySelectorAll('.buy-button');
 
-    <section class="tab-content">
-      <h2>Pupuk & Konsultan</h2>
-      <div class="product">
-        <p>Layanan konsultasi pertanian serta penyedia pupuk organik dan non-organik untuk singkong.</p>
-      </div>
-    </section>
-  </main>
+    // Variabel konfigurasi
+    const defaultBankAccount = '1234-5678-9012-3456';
+    const adminWhatsAppNumber = '6282183401118'; // Ganti dengan nomor WhatsApp admin MSI Lampung
+
+    // Fungsi untuk memformat angka ke Rupiah
+    function formatRupiah(amount) {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0
+        }).format(amount);
+    }
+
+    // Event listener untuk setiap tombol "Beli Sekarang"
+    buyButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const productName = this.dataset.product;
+            const productPrice = parseFloat(this.dataset.price);
+            
+            // Tentukan apakah harga negosiasi atau tampilkan harga
+            const formattedPrice = productPrice === 0 ? 'Harga Negosiasi' : formatRupiah(productPrice);
+
+            // Perbarui konten modal
+            productNameSpan.textContent = productName;
+            productPriceSpan.textContent = formattedPrice;
+            bankAccountNumberSpan.textContent = defaultBankAccount;
+
+            // Buat pesan WhatsApp
+            let whatsappMessage = `Halo admin MSI, saya tertarik untuk membeli produk: *${productName}*`;
+            if (productPrice > 0) {
+                whatsappMessage += ` dengan harga: *${formattedPrice}*.`;
+            } else {
+                whatsappMessage += `. Mohon info lebih lanjut mengenai pemesanan.`;
+            }
+            whatsappMessage += `\nSaya telah melihat metode pembayaran di website.`;
+
+            // Atur link WhatsApp
+            whatsappLink.href = `https://wa.me/${adminWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Tampilkan modal dan nonaktifkan scroll body
+            paymentModal.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+        });
+    });
+
+    // Event listener untuk tombol tutup modal
+    closeButton.addEventListener('click', function () {
+        paymentModal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    });
+
+    // Event listener untuk klik di luar modal (untuk menutup modal)
+    window.addEventListener('click', function (event) {
+        if (event.target === paymentModal) { // Pastikan yang diklik adalah overlay modal, bukan isinya
+            paymentModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+    });
+
+    // Opsional: Menutup modal dengan tombol Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && paymentModal.style.display === 'flex') {
+            paymentModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+    });
+</script>
 </body>
-
 </html>

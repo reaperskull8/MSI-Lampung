@@ -1,0 +1,55 @@
+backend:
+  name: github
+  repo: your-github-username/msi-lampung.com  # ganti dengan owner/repo-mu
+  branch: main                                # cabang utama
+  auth_endpoint: https://your-proxy.example.com   # OAuth proxy kamu
+  commit_messages:
+    create: "Create {{collection}}/{{slug}}"
+    update: "Update {{collection}}/{{slug}}"
+    delete: "Delete {{collection}}/{{slug}}"
+
+media_folder: "assets/uploads"   # di repo tempat media disimpan
+public_folder: "/assets/uploads"
+
+logo_url: "/logo-msi.png"
+site_url: "https://msi-lampung.com"
+
+collections:
+  - name: "posts"
+    label: "Berita / Update"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "md"
+    extension: "md"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Ringkasan", name: "summary", widget: "text" }
+      - { label: "Gambar Unggulan", name: "featured_image", widget: "image" }
+      - { label: "Konten", name: "body", widget: "markdown" }
+
+  - name: "produk"
+    label: "Produk"
+    folder: "_produk"
+    create: true
+    slug: "{{slug}}"
+    format: "md"
+    extension: "md"
+    fields:
+      - { label: "Nama Produk", name: "title", widget: "string" }
+      - { label: "Deskripsi Singkat", name: "excerpt", widget: "text" }
+      - { label: "Gambar", name: "image", widget: "image" }
+      - { label: "Detail", name: "body", widget: "markdown" }
+      - { label: "Link Eksternal (opsional)", name: "link", widget: "string", required: false }
+
+  - name: "nilai"
+    label: "Nilai / Value"
+    files:
+      - file: "data/values.yml"
+        label: "Nilai MSI"
+        name: "values"
+        fields:
+          - { label: "Judul", name: "title", widget: "string" }
+          - { label: "Icon (kelas FontAwesome)", name: "icon", widget: "string" }
+          - { label: "Deskripsi", name: "description", widget: "text" }

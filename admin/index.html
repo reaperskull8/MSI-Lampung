@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>CMS MSI-Lampung</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Font sesuai tema -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Override default Netlify CMS styling agar selaras -->
+  <style>
+    :root {
+      --primary-color: #3CB371;
+      --accent-color: #2F6239;
+      --highlight-color: #FFD700;
+      --bg: #fdfcf5;
+      --radius: 8px;
+      --shadow: rgba(0,0,0,0.1);
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body {
+      background: var(--bg);
+    }
+    .nc-layout {
+      font-family: inherit;
+    }
+    .nc-app {
+      border-radius: var(--radius);
+      box-shadow: 0 20px 40px var(--shadow);
+    }
+    .nc-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      color: white;
+    }
+    .nc-sidebar {
+      background: #fff;
+    }
+    .nc-btn {
+      background-color: var(--primary-color) !important;
+      border-radius: 6px !important;
+      font-weight: 600;
+    }
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-wrapper img {
+      height: 32px;
+    }
+    .logo-text {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom header/logo area (Netlify CMS will render its UI below) -->
+  <div style="padding:12px; display:flex; align-items:center; gap:10px; border-bottom:1px solid #e3e3e3;">
+    <div class="logo-wrapper">
+      <img src="../logo-msi.png" alt="MSI Logo" />
+      <div class="logo-text">MSI Lampung CMS</div>
+    </div>
+  </div>
+
+  <!-- Netlify CMS app mount point -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</body>
+</html>
